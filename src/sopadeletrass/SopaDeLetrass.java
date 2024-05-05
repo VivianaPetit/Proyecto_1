@@ -15,6 +15,8 @@ public class SopaDeLetrass {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ISopaDeLetras nueva=new ISopaDeLetras();
+        nueva.setVisible(true);
     }
     
 }
