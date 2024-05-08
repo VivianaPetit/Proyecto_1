@@ -11,6 +11,7 @@ package SopaDeLetrass;
 public class Nodo {
 
     private String letra;
+    
     private Nodo izq;
     private Nodo der;
     private Nodo arriba;
