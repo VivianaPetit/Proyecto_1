@@ -17,6 +17,10 @@ public class SopaDeLetrass {
         // TODO code application logic here
         ISopaDeLetras nueva=new ISopaDeLetras();
         nueva.setVisible(true);
+        /*Listaexamples nueva=new Listaexamples();
+        nueva.insertFinal('a');
+        nueva.insertFinal('b');
+        nueva.print();*/
     }
     
 }
