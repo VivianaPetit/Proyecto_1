@@ -192,11 +192,20 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         //String letras = "C,H,A,O,X,A,T,M,P,R,R,A,A,O,R,O";
 
         Listaexamples lista = new Listaexamples();
+        Listaexamples listaWord=new Listaexamples();
         if (seleccionar.showDialog(null, "Abrir") == JFileChooser.APPROVE_OPTION) {
             archivo = seleccionar.getSelectedFile();
             if (archivo.canRead()) {
                 if (archivo.getName().endsWith("txt")) {
                     String documento = AbrirArchivo(archivo);
+                    int inicioWord=documento.indexOf("dic")+"/dic".length();
+                    int finWord=documento.indexOf("/dic");
+                    String ParaRecorrer=documento.substring(inicioWord,finWord);
+                    ParaRecorrer=ParaRecorrer.replaceAll("/n", "");
+                    for (int i = 0; i < ParaRecorrer.length(); i++) {
+                        char letraWords=ParaRecorrer.charAt(i);
+                        listaWord.insertFinal(letraWords);
+                    }
                     int inicio = documento.indexOf("tab") + "tab".length();
                     int fin = documento.indexOf("/tab");
                     String textolista = documento.substring(inicio, fin);
@@ -214,6 +223,7 @@ public class ISopaDeLetras extends javax.swing.JFrame {
                 }
             }
         }
+        listaWord.print();
         lista.print();
     }//GEN-LAST:event_empezarActionPerformed
 
