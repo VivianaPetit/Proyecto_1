@@ -1,113 +1,110 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package sopadeletrass;
 
+import java.util.LinkedList;
+
 /**
  *
- * @author KelvinCi
+ * @author Daniela Gimenez, Abraham Castillo, Andrea Pinto
  */
-
-    public class Grafo {
-	private NodoGrafo grafo[];
-	private int nroVertices;
-	
-	public Grafo(int nroVertices){
-		this.nroVertices = nroVertices;
-		grafo = new NodoGrafo[this.nroVertices];
-		
-		for(int i = 0; i < grafo.length; i++){
-			grafo[i] = null;
-		}
-	}
-	
-	public boolean existeArista(int v1, int v2){
-		NodoGrafo actual = grafo[v1];
-		while(actual != null){
-			if(actual.vertice == v2) return true;
-			actual = actual.sgte;
-		}
-		return false;
-	}
-	
-	public void insertarArista(int v1, int v2, int peso){
-		if(!existeArista(v1, v2)){
-			NodoGrafo nuevo = new NodoGrafo(v2, peso);
-			
-			if(grafo[v1] == null){
-				grafo[v1] = nuevo;
-				insertarArista(v2, v1,peso);				
-			}
-			else{
-				NodoGrafo actual = grafo[v1];
-				
-				while(actual.sgte != null)
-				{ 
-					actual = actual.sgte;
-				}
-				actual.sgte = nuevo;
-				insertarArista(v2,v1,peso);				
-			}
-		}		
-	}
-	
-	public void eliminarArista(int v1, int v2){
-		if(existeArista(v1, v2)){
-			if(grafo[v1].vertice == v2){
-				grafo[v1] = grafo[v1].sgte;
-				eliminarArista(v2,v1);
-				return;
-			}
-			NodoGrafo actual = grafo[v1].sgte;
-			NodoGrafo anterior = grafo[v1];
-			
-			while(actual != null){
-				if(actual.vertice == v2){
-					anterior.sgte = actual.sgte;
-					eliminarArista(v2,v1);
-					return;
-				}
-				anterior = actual;
-				actual = actual.sgte;
-			}
-		}		
-	}
-	
-	public void mostrarGrafo(){
-		for( int i = 0; i < grafo.length; i++){
-			NodoGrafo actual = grafo[i];
-			
-			while(actual != null){
-				System.out.printf("%d -> " , i);
-				System.out.printf("%d(%d) \n" , actual.vertice, actual.pesoArista);
-				
-				actual = actual.sgte;
-			}
-			System.out.println();
-		}
-	}
-	
-	public void eliminarGrafo(){
-		for( int i = 0; i < grafo.length; i++){
-			grafo[i] = null;
-		}
-	}
-
-    public NodoGrafo[] getGrafo() {
-        return grafo;
+public class Grafo {
+    int numVerts;
+    int maxVerts;
+    NodoGrafo [] tablAdc;
+    
+    public Grafo(int mx) {
+        tablAdc = new NodoGrafo[mx];
+        numVerts = 0;
+        maxVerts = mx;
     }
-
-    public void setGrafo(NodoGrafo[] grafo) {
-        this.grafo = grafo;
+    
+    public NodoGrafo[] vertices(){
+        return tablAdc;
     }
-
-    public int getNroVertices() {
-        return nroVertices;
+    
+    // Devuelve la lista de adyacencia del vértice v
+    public LinkedList listaAdyc(int v) throws Exception {
+        if (v < 0 || v >= numVerts){
+            throw new Exception("Vértice fuera de rango");
+        }
+        return tablAdc[v].lad;
     }
-
-    public void setNroVertices(int nroVertices) {
-        this.nroVertices = nroVertices;
+    
+    // Busca y devuelve el número de vértice, si no lo encuentra regresa -1
+    public int numVertice(String nombre) {
+        NodoGrafo v = new NodoGrafo(nombre);
+        boolean encontrado = false;
+        int i = 0;
+        for (; (i < numVerts) && !encontrado;){
+            encontrado = tablAdc[i].equals(v);
+            if (!encontrado){
+                i++;
+            }
+        }
+        return (i < numVerts) ? i : -1;
     }
-  
+    
+    // Crea un nuevo vértice
+    public void nuevoVertice (String nombre) {
+        boolean existe = numVertice(nombre) >= 0;
+        if (!existe) {
+            NodoGrafo v = new NodoGrafo(nombre);
+            v.asigVert(numVerts);
+            tablAdc[numVerts++] = v;
+        }
+    } 
+    
+    // Comprueba si dos vertices son adyacentes
+    boolean adyacente(String a, String b) throws Exception{
+        int v1, v2;
+        v1 = numVertice(a);
+        v2 = numVertice(b);
+        if(v1 < 0 || v2 < 0) {
+            throw new Exception ("El vértice no existe");
+        }
+        if (tablAdc[v1].lad.contains(new Apuntadorr(v2))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    // Comprueba si dos vertices son adyacentes por el número de vértice
+    boolean adyacente(int v1, int v2) throws Exception{
+        if (tablAdc[v1].lad.contains(new Apuntadorr(v2))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    
+    // Crea un nuevo arco
+    public void nuevoArco(String a, String b) throws Exception {
+        if (!adyacente(a,b)){
+            int v1 = numVertice(a);
+            int v2 = numVertice(b);
+            if(v1 < 0 || v2 < 0) {
+                throw new Exception ("El vértice no existe");
+            }
+            Apuntadorr ab = new Apuntadorr(v2);
+            tablAdc[v1].lad.addFirst(ab);
+        }
+    }
+    
+    // borra un arco ya creado
+    public void borrarArco(String a, String b) throws Exception {
+        int v1 = numVertice(a);
+        int v2 = numVertice(b);
+        if(v1 < 0 || v2 < 0) {
+            throw new Exception ("El vértice no existe");
+        }
+        Apuntadorr ab = new Apuntadorr(v2);
+        tablAdc[v1].lad.remove(ab);
+    }
+    
 }
