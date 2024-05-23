@@ -6,7 +6,7 @@ package sopadeletrass;
 
 /**
  *
- * @author andres
+ * 
  */
 public class Apuntadorr {
     int destino;

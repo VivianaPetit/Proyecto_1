@@ -6,105 +6,73 @@
 package sopadeletrass;
 
 import java.util.LinkedList;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
- * @author Daniela Gimenez, Abraham Castillo, Andrea Pinto
+ * 
  */
 public class Grafo {
-    int numVerts;
-    int maxVerts;
-    NodoGrafo [] tablAdc;
-    
-    public Grafo(int mx) {
-        tablAdc = new NodoGrafo[mx];
-        numVerts = 0;
-        maxVerts = mx;
-    }
-    
-    public NodoGrafo[] vertices(){
-        return tablAdc;
-    }
-    
-    // Devuelve la lista de adyacencia del vértice v
-    public LinkedList listaAdyc(int v) throws Exception {
-        if (v < 0 || v >= numVerts){
-            throw new Exception("Vértice fuera de rango");
-        }
-        return tablAdc[v].lad;
-    }
-    
-    // Busca y devuelve el número de vértice, si no lo encuentra regresa -1
-    public int numVertice(String nombre) {
-        NodoGrafo v = new NodoGrafo(nombre);
-        boolean encontrado = false;
-        int i = 0;
-        for (; (i < numVerts) && !encontrado;){
-            encontrado = tablAdc[i].equals(v);
-            if (!encontrado){
-                i++;
+    private NodoGrafo[][] tablero;
+    private int size=4;
+    public Grafo(char[][]letras){
+        tablero=new NodoGrafo[size][size];
+        for(int i=0;i<size;i++){
+            for (int j = 0; j < size; j++) {
+                tablero[i][j]=new NodoGrafo(letras[i][j],i,j);
             }
         }
-        return (i < numVerts) ? i : -1;
+        
+        conectarnodos();
     }
-    
-    // Crea un nuevo vértice
-    public void nuevoVertice (String nombre) {
-        boolean existe = numVertice(nombre) >= 0;
-        if (!existe) {
-            NodoGrafo v = new NodoGrafo(nombre);
-            v.asigVert(numVerts);
-            tablAdc[numVerts++] = v;
-        }
-    } 
-    
-    // Comprueba si dos vertices son adyacentes
-    boolean adyacente(String a, String b) throws Exception{
-        int v1, v2;
-        v1 = numVertice(a);
-        v2 = numVertice(b);
-        if(v1 < 0 || v2 < 0) {
-            throw new Exception ("El vértice no existe");
-        }
-        if (tablAdc[v1].lad.contains(new Apuntadorr(v2))) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    // Comprueba si dos vertices son adyacentes por el número de vértice
-    boolean adyacente(int v1, int v2) throws Exception{
-        if (tablAdc[v1].lad.contains(new Apuntadorr(v2))) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    
-    // Crea un nuevo arco
-    public void nuevoArco(String a, String b) throws Exception {
-        if (!adyacente(a,b)){
-            int v1 = numVertice(a);
-            int v2 = numVertice(b);
-            if(v1 < 0 || v2 < 0) {
-                throw new Exception ("El vértice no existe");
+    public final void conectarnodos(){
+        int[] dx={-1,-1,-1,0,0,1,1,1};
+        int[] dy={-1,0,1,-1,1,-1,0,1};
+        
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                NodoGrafo nodo=tablero[i][j];
+                for (int k = 0; k < 8; k++) {
+                    int newx=i+dx[k];
+                    int newy=j+dy[k];
+                    if (newx>=0&&newx<size&&newy>=0&&newy<size) {
+                        nodo.getAdyacentes().add(tablero[newx][newy]);
+                    }
+                }
             }
-            Apuntadorr ab = new Apuntadorr(v2);
-            tablAdc[v1].lad.addFirst(ab);
+            
         }
     }
-    
-    // borra un arco ya creado
-    public void borrarArco(String a, String b) throws Exception {
-        int v1 = numVertice(a);
-        int v2 = numVertice(b);
-        if(v1 < 0 || v2 < 0) {
-            throw new Exception ("El vértice no existe");
+     
+     public static void imprimirGrafo(Grafo grafo) {
+        NodoGrafo[][] tablero = grafo.getTablero();
+        int size = grafo.getSize();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                NodoGrafo nodo = tablero[i][j];
+                System.out.print("Nodo (" + nodo.getLetra() + " en [" + i + "," + j + "]) -> Adyacentes: ");
+                for (NodoGrafo adyacente : nodo.getAdyacentes()) {
+                    System.out.print(adyacente.getLetra() + " ");
+                }
+                System.out.println();
+            }
         }
-        Apuntadorr ab = new Apuntadorr(v2);
-        tablAdc[v1].lad.remove(ab);
+     }
+    public NodoGrafo[][] getTablero() {
+        return tablero;
+    }
+
+    public void setTablero(NodoGrafo[][] tablero) {
+        this.tablero = tablero;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
     
 }
