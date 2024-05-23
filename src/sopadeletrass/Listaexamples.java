@@ -23,13 +23,12 @@ public class Listaexamples {
         if(first==null){
             first=letras;
             last=letras;
-            length++;
         }else{
             letras.setDere(first);
             first.setIzq(letras);
             first=letras;
-            length++;
         }
+        length++;
     }
     public void insertFinal(char letra){
         NodoLista nuevo=new NodoLista(letra);
@@ -41,6 +40,7 @@ public class Listaexamples {
             nuevo.setIzq(last);
             last=nuevo;
         }
+        length++;
     }
      public void print() {
         if (first==null) {
@@ -48,7 +48,7 @@ public class Listaexamples {
         } else {
             NodoLista temp = first;
             while (temp != null) {
-                System.out.print(  temp.getValor() );
+                System.out.print(temp.getValor());
                 temp = temp.getDere();
             }
         }
