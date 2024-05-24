@@ -47,7 +47,7 @@ public class Ventana1 extends javax.swing.JFrame {
                 EmpezarBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpezarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 100, 40));
+        jPanel1.add(EmpezarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 90, 30));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo circular ilustrativo tienda vegatales verde.png"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -61,6 +61,8 @@ public class Ventana1 extends javax.swing.JFrame {
         Ventana2 v2 = new Ventana2();
         this.setVisible(false);
         v2.setVisible(true);
+        
+        
     }//GEN-LAST:event_EmpezarBtnActionPerformed
 
     /**

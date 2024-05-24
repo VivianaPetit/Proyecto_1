@@ -24,7 +24,8 @@ public class Ventana2 extends javax.swing.JFrame {
     File archivo;
     FileInputStream entrada;
     FileOutputStream salida;
-    static Listaexamples listaWord;
+    Listaexamples listaWord;
+    Listaexamples listaLetras;
 
     /**
      * Creates new form ISopaDeLetras
@@ -61,96 +62,55 @@ public class Ventana2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        empezarBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        casilla1 = new javax.swing.JTextField();
-        casilla2 = new javax.swing.JTextField();
-        casilla3 = new javax.swing.JTextField();
-        casilla4 = new javax.swing.JTextField();
-        casilla5 = new javax.swing.JTextField();
-        casilla6 = new javax.swing.JTextField();
-        casilla7 = new javax.swing.JTextField();
-        casilla8 = new javax.swing.JTextField();
-        casilla9 = new javax.swing.JTextField();
-        casilla10 = new javax.swing.JTextField();
-        casilla11 = new javax.swing.JTextField();
-        casilla12 = new javax.swing.JTextField();
-        casilla13 = new javax.swing.JTextField();
-        casilla14 = new javax.swing.JTextField();
-        casilla15 = new javax.swing.JTextField();
-        casilla16 = new javax.swing.JTextField();
+        empezarBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        VolverBtn = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         empezarBtn.setBackground(new java.awt.Color(220, 115, 34));
-        empezarBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        empezarBtn.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         empezarBtn.setForeground(new java.awt.Color(255, 255, 255));
-        empezarBtn.setText("Empezar");
+        empezarBtn.setText("Buscar arhivo");
         empezarBtn.setBorder(null);
         empezarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 empezarBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(empezarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 110, 30));
+        jPanel1.add(empezarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 190, 70));
 
-        jPanel1.setBackground(new java.awt.Color(237, 180, 77));
-        jPanel1.setForeground(new java.awt.Color(237, 180, 77));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 440, 230));
 
-        casilla1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 55, 42));
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Solo archivos tipo .txtx");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, 20));
 
-        casilla2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 55, 42));
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Carga tu archivo con el diccionario");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
-        casilla3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 55, 42));
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 1, 22)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("y las letras para el tablero");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, 20));
 
-        casilla4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 55, 42));
+        VolverBtn.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        VolverBtn.setForeground(new java.awt.Color(220, 115, 34));
+        VolverBtn.setText("Volver");
+        getContentPane().add(VolverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
 
-        casilla5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 55, 42));
-
-        casilla6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 55, 42));
-
-        casilla7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 55, 42));
-
-        casilla8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 55, 42));
-
-        casilla9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 55, 42));
-
-        casilla10.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 55, 42));
-
-        casilla11.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 55, 42));
-
-        casilla12.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 55, 42));
-
-        casilla13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 55, 42));
-
-        casilla14.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 55, 42));
-
-        casilla15.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 55, 42));
-
-        casilla16.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 55, 42));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 290, 230));
-
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/2.png"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background 2.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -182,16 +142,10 @@ public class Ventana2 extends javax.swing.JFrame {
                     for (int i = 0; i < textolista.length(); i++) {
                         char letra = textolista.charAt(i);
                         
-                        String letraStr = String.valueOf(letra);
-
-                        Component componente = jPanel1.getComponent(i);
-                        if (componente instanceof JTextField) {
-                            JTextField textfield = (JTextField) componente;            
-                            textfield.setText(letraStr);
-                            textfield.setEditable(false);
-                            textfield.setHorizontalAlignment(JTextField.CENTER);
-                        }
+                        listaLetras.insertFinal(letra);
                     }
+                    
+                    Ventana3.crearTablero(listaLetras);
 
                 } else {
                     JOptionPane.showConfirmDialog(null, "Archivo no compatible");
@@ -205,24 +159,12 @@ public class Ventana2 extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton VolverBtn;
     private javax.swing.JLabel background;
-    private javax.swing.JTextField casilla1;
-    private javax.swing.JTextField casilla10;
-    private javax.swing.JTextField casilla11;
-    private javax.swing.JTextField casilla12;
-    private javax.swing.JTextField casilla13;
-    private javax.swing.JTextField casilla14;
-    private javax.swing.JTextField casilla15;
-    private javax.swing.JTextField casilla16;
-    private javax.swing.JTextField casilla2;
-    private javax.swing.JTextField casilla3;
-    private javax.swing.JTextField casilla4;
-    private javax.swing.JTextField casilla5;
-    private javax.swing.JTextField casilla6;
-    private javax.swing.JTextField casilla7;
-    private javax.swing.JTextField casilla8;
-    private javax.swing.JTextField casilla9;
     private javax.swing.JButton empezarBtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
