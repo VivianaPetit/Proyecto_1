@@ -6,7 +6,7 @@ package SopaDeLetrass;
 
 /**
  *
- * @author valeriazampetti
+ * @author 
  */
 public class Nodo {
 
