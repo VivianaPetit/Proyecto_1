@@ -6,17 +6,23 @@ package Interfaz;
 
 /**
  *
- * @author USUARIO
+ * @author VivianaPetit
  */
 public class Ventana1 extends javax.swing.JFrame {
 
     /**
      * Creates new form Ventana1
      */
+    Fuentes tipoFuente; 
+    
     public Ventana1() {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        tipoFuente = new Fuentes();
+        jLabel1.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 20));
+        jLabel3.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 40));
+        
     }
 
     /**
@@ -28,81 +34,72 @@ public class Ventana1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        EmpezarBtn = new javax.swing.JButton();
-        background = new javax.swing.JLabel();
+        panelRound1 = new Interfaz.PanelRound();
+        jLabel3 = new javax.swing.JLabel();
+        panelRound2 = new Interfaz.PanelRound();
+        jLabel1 = new javax.swing.JLabel();
+        panelRound3 = new Interfaz.PanelRound();
+        backgorund = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelRound1.setBackground(new java.awt.Color(120, 61, 25));
+        panelRound1.setRoundBottomLeft(10);
+        panelRound1.setRoundBottomRight(10);
+        panelRound1.setRoundTopLeft(10);
+        panelRound1.setRoundTopRight(10);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        EmpezarBtn.setBackground(new java.awt.Color(220, 115, 34));
-        EmpezarBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        EmpezarBtn.setForeground(new java.awt.Color(255, 255, 255));
-        EmpezarBtn.setText("Iniciar");
-        EmpezarBtn.setBorder(null);
-        EmpezarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmpezarBtnActionPerformed(evt);
+        jLabel3.setForeground(new java.awt.Color(185, 148, 112));
+        jLabel3.setText("Sopa De Letras");
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
+
+        panelRound2.setBackground(new java.awt.Color(185, 148, 112));
+        panelRound2.setRoundBottomLeft(10);
+        panelRound2.setRoundBottomRight(10);
+        panelRound2.setRoundTopLeft(10);
+        panelRound2.setRoundTopRight(10);
+        panelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelRound2MousePressed(evt);
             }
         });
-        jPanel1.add(EmpezarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 90, 30));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo circular ilustrativo tienda vegatales verde.png"))); // NOI18N
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setForeground(new java.awt.Color(120, 61, 25));
+        jLabel1.setText("Iniciar");
+        panelRound2.add(jLabel1);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 110, 30));
+
+        panelRound3.setBackground(new java.awt.Color(185, 148, 112));
+        panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        backgorund.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background__4_-removebg-preview.png"))); // NOI18N
+        panelRound3.add(backgorund, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 420));
+
+        panelRound1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 380));
+
+        getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EmpezarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpezarBtnActionPerformed
+    private void panelRound2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MousePressed
+        
         Ventana2 v2 = new Ventana2();
         this.setVisible(false);
         v2.setVisible(true);
-        
-        
-    }//GEN-LAST:event_EmpezarBtnActionPerformed
+    }//GEN-LAST:event_panelRound2MousePressed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ventana1().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton EmpezarBtn;
-    private javax.swing.JLabel background;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel backgorund;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private Interfaz.PanelRound panelRound1;
+    private Interfaz.PanelRound panelRound2;
+    private Interfaz.PanelRound panelRound3;
     // End of variables declaration//GEN-END:variables
 }

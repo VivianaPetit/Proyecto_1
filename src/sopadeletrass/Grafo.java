@@ -8,6 +8,6 @@ package sopadeletrass;
  *
  * @author KelvinCi
  */
-public class Grafos {
+public class Grafo {
     
 }

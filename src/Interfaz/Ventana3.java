@@ -3,9 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaz;
-import sopadeletrass.*;
-import java.awt.*;
-import javax.swing.*;
+
 /**
  *
  * @author USUARIO
@@ -15,26 +13,18 @@ public class Ventana3 extends javax.swing.JFrame {
     /**
      * Creates new form Ventana3
      */
+    Fuentes tipoFuente; 
+    
     public Ventana3() {
         initComponents();
-    }
-    
-    public void crearTablero(Listaexamples listaLetras){
-        NodoLista letra = listaLetras.getFirst();
-        for(int i =0; i < listaLetras.getLenght(); i++) {
-            
-            String letraStr = String.valueOf(letra.getValor());
-
-            Component componente = jPanel1.getComponent(i);
-            if (componente instanceof JTextField) {
-                JTextField textfield = (JTextField) componente;            
-                textfield.setText(letraStr);
-                textfield.setEditable(false);
-                textfield.setHorizontalAlignment(JTextField.CENTER);
-            }
-            letra = letra.getDere();
-        }
-        
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        tipoFuente = new Fuentes();
+        jLabel2.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 23));
+        jLabel3.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 23));
+        jLabel4.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 35));
+        jLabel5.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 20));
+        jLabel6.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 23));
     }
 
     /**
@@ -46,166 +36,161 @@ public class Ventana3 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelRound1 = new Interfaz.PanelRound();
+        panelRound2 = new Interfaz.PanelRound();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        casilla1 = new javax.swing.JTextField();
-        casilla2 = new javax.swing.JTextField();
-        casilla3 = new javax.swing.JTextField();
-        casilla4 = new javax.swing.JTextField();
-        casilla5 = new javax.swing.JTextField();
-        casilla6 = new javax.swing.JTextField();
-        casilla7 = new javax.swing.JTextField();
-        casilla8 = new javax.swing.JTextField();
-        casilla9 = new javax.swing.JTextField();
-        casilla10 = new javax.swing.JTextField();
-        casilla11 = new javax.swing.JTextField();
-        casilla12 = new javax.swing.JTextField();
-        casilla13 = new javax.swing.JTextField();
-        casilla14 = new javax.swing.JTextField();
-        casilla15 = new javax.swing.JTextField();
-        casilla16 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        background = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        panelRound3 = new Interfaz.PanelRound();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        panelRound4 = new Interfaz.PanelRound();
+        jLabel5 = new javax.swing.JLabel();
+        panelRound5 = new Interfaz.PanelRound();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(237, 180, 77));
-        jPanel1.setForeground(new java.awt.Color(237, 180, 77));
+        panelRound1.setBackground(new java.awt.Color(120, 61, 25));
+        panelRound1.setRoundBottomLeft(10);
+        panelRound1.setRoundBottomRight(10);
+        panelRound1.setRoundTopLeft(10);
+        panelRound1.setRoundTopRight(10);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRound2.setBackground(new java.awt.Color(185, 148, 112));
+        panelRound2.setRoundBottomLeft(10);
+        panelRound2.setRoundBottomRight(10);
+        panelRound2.setRoundTopLeft(10);
+        panelRound2.setRoundTopRight(10);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image-removebg-preview (3).png"))); // NOI18N
+        jLabel2.setText("          Actualizar Diccionario");
+        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 50));
+
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 310, 50));
+
+        jPanel1.setBackground(new java.awt.Color(185, 148, 112));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        casilla1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 55, 40));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background__4_-removebg-preview.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 150, 480));
 
-        casilla2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 55, 42));
+        panelRound1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 350));
 
-        casilla3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 55, 42));
-
-        casilla4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 55, 42));
-
-        casilla5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        casilla5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casilla5ActionPerformed(evt);
+        panelRound3.setBackground(new java.awt.Color(185, 148, 112));
+        panelRound3.setRoundBottomLeft(10);
+        panelRound3.setRoundBottomRight(10);
+        panelRound3.setRoundTopLeft(10);
+        panelRound3.setRoundTopRight(10);
+        panelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelRound3MousePressed(evt);
             }
         });
-        jPanel1.add(casilla5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 55, 42));
+        panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        casilla6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 55, 42));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image-removebg-preview (2).png"))); // NOI18N
+        jLabel3.setText("                         Ver Tablero");
+        panelRound3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 50));
 
-        casilla7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 55, 42));
+        panelRound1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 310, 50));
 
-        casilla8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 55, 42));
+        jPanel2.setBackground(new java.awt.Color(185, 148, 112));
 
-        casilla9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 55, 42));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 290, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
 
-        casilla10.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 55, 42));
+        panelRound1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 290, 10));
 
-        casilla11.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 55, 42));
+        jPanel3.setBackground(new java.awt.Color(185, 148, 112));
 
-        casilla12.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 55, 42));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
 
-        casilla13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 55, 42));
+        panelRound1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 320, 10));
 
-        casilla14.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 55, 42));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Menú");
+        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 100, 50));
 
-        casilla15.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 55, 42));
+        panelRound4.setBackground(new java.awt.Color(185, 148, 112));
+        panelRound4.setRoundBottomLeft(10);
+        panelRound4.setRoundBottomRight(10);
+        panelRound4.setRoundTopLeft(10);
+        panelRound4.setRoundTopRight(10);
+        panelRound4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        casilla16.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jPanel1.add(casilla16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 55, 42));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image-removebg-preview (1).png"))); // NOI18N
+        jLabel5.setText("               Buscar Palabra Específica");
+        panelRound4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 300, 230));
+        panelRound1.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 310, 50));
 
-        jTextArea1.setBackground(new java.awt.Color(220, 115, 34));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        panelRound5.setBackground(new java.awt.Color(185, 148, 112));
+        panelRound5.setRoundBottomLeft(10);
+        panelRound5.setRoundBottomRight(10);
+        panelRound5.setRoundTopLeft(10);
+        panelRound5.setRoundTopRight(10);
+        panelRound5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 150, 280));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 130, 40));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image-removebg-preview.png"))); // NOI18N
+        jLabel6.setText("                   Buscar Palabras");
+        panelRound5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 50));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo tablero.png"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 490));
+        panelRound1.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 310, 50));
+
+        getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void casilla5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_casilla5ActionPerformed
+    private void panelRound3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound3MousePressed
+        Ventana4 v4 = new Ventana4();
+        this.setVisible(false);
+        v4.setVisible(true);
+    }//GEN-LAST:event_panelRound3MousePressed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ventana3().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel background;
-    private javax.swing.JTextField casilla1;
-    private javax.swing.JTextField casilla10;
-    private javax.swing.JTextField casilla11;
-    private javax.swing.JTextField casilla12;
-    private javax.swing.JTextField casilla13;
-    private javax.swing.JTextField casilla14;
-    private javax.swing.JTextField casilla15;
-    private javax.swing.JTextField casilla16;
-    private javax.swing.JTextField casilla2;
-    private javax.swing.JTextField casilla3;
-    private javax.swing.JTextField casilla4;
-    private javax.swing.JTextField casilla5;
-    private javax.swing.JTextField casilla6;
-    private javax.swing.JTextField casilla7;
-    private javax.swing.JTextField casilla8;
-    private javax.swing.JTextField casilla9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private Interfaz.PanelRound panelRound1;
+    private Interfaz.PanelRound panelRound2;
+    private Interfaz.PanelRound panelRound3;
+    private Interfaz.PanelRound panelRound4;
+    private Interfaz.PanelRound panelRound5;
     // End of variables declaration//GEN-END:variables
 }

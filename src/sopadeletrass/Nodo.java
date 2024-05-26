@@ -20,6 +20,7 @@ public class Nodo {
     private Nodo DiagonalArribaIzquierda;
     private Nodo DiagonalAbajoDerecha;
     private Nodo DiagonalAbajoIzquierda;
+    
     public Nodo(String letra){
         this.letra=letra;
         this.DiagonalAbajoDerecha=null;

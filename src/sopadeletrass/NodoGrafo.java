@@ -9,5 +9,5 @@ package sopadeletrass;
  * @author KelvinCi
  */
 public class NodoGrafo {
-    
+ 
 }

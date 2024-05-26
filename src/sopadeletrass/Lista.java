@@ -8,50 +8,50 @@ package sopadeletrass;
  *
  * @author KelvinCi
  */
-public class Listaexamples {
+public class Lista {
     private NodoLista first;
     private NodoLista last;
     private int length;
-    public Listaexamples(){
+    
+    /* Contructor de la clase Lista 
+    */
+    public Lista(){
         this.first=null;
         this.last=null;
         this.length=0;
     }
-
-    public void insertarbegin(char letra){
-        NodoLista letras=new NodoLista(letra);
-        if(first==null){
-            first=letras;
-            last=letras;
-        }else{
-            letras.setDere(first);
-            first.setIzq(letras);
-            first=letras;
-        }
-        length++;
+    /* 
+    * @return <code>true</code> si la lista est&aacute vac&iacute.
+    */
+    public boolean esVacio(){
+        return first == null;
     }
+    
     public void insertFinal(char letra){
         NodoLista nuevo=new NodoLista(letra);
-        if(first==null){
+        if(esVacio()){
             first=nuevo;
             last=nuevo;
         }else{
-            last.setDere(nuevo);
-            nuevo.setIzq(last);
-            last=nuevo;
+            NodoLista aux = last;
+            aux.setSiguiente(nuevo);
+            last = nuevo;
         }
         length++;
     }
-     public void print() {
-        if (first==null) {
-            System.out.println("Lista Vacia");
+     public String printString() {
+        String cadena = "";
+        if (esVacio()) {
+            cadena = cadena + "No hay palabras en el diccionario"; 
         } else {
-            NodoLista temp = first;
-            while (temp != null) {
-                System.out.print(temp.getValor());
-                temp = temp.getDere();
+            
+            NodoLista aux = first;
+            while (aux != null) {
+                cadena = cadena + aux.getValor();
+                aux = aux.getSiguiente();
             }
         }
+        return cadena; 
     }
     public NodoLista getFirst() {
         return first;
