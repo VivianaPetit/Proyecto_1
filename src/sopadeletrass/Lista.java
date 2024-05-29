@@ -13,20 +13,26 @@ public class Lista {
     private NodoLista last;
     private int length;
     
-    /* Contructor de la clase Lista 
+    /**
+     * Contructor de la clase Lista 
     */
     public Lista(){
         this.first=null;
         this.last=null;
         this.length=0;
     }
-    /* 
-    * @return <code>true</code> si la lista est&aacute vac&iacute.
+    /**
+    * @return true si la lista esta vacia.
     */
     public boolean esVacio(){
         return first == null;
     }
     
+    /** 
+    * Inserta un nuevo nodo al final de la lista. 
+    *
+    * @param letra Caracter que almacena para crear el nodo.
+    */
     public void insertFinal(char letra){
         NodoLista nuevo=new NodoLista(letra);
         if(esVacio()){
@@ -38,6 +44,12 @@ public class Lista {
             last = nuevo;
         }
         length++;
+        
+    /**
+     * Devuelve los elementos de una lista como una cadena.
+     * 
+     * @return String cadena con los elementos de la lista.
+    */    
     }
      public String printString() {
         String cadena = "";

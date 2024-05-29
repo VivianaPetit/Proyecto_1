@@ -12,10 +12,6 @@ import javax.swing.*;
  */
 public class Ventana4 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Ventana3
-     */
-    
     Fuentes tipoFuente;
     
     public Ventana4() {

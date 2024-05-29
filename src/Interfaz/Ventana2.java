@@ -135,34 +135,42 @@ public class Ventana2 extends javax.swing.JFrame {
             if (archivo.canRead()) {
                 if (archivo.getName().endsWith("txt")) {
                     String documento = AbrirArchivo(archivo);
-                    int inicioWord=documento.indexOf("dic")+"/dic".length();
-                    int finWord=documento.indexOf("/dic");
-                    String ParaRecorrer=documento.substring(inicioWord,finWord);
-                    ParaRecorrer=ParaRecorrer.replaceAll("/n", "");
-                    for (int i = 0; i < ParaRecorrer.length(); i++) {
-                        char letraWords=ParaRecorrer.charAt(i);
-                        listaWord.insertFinal(letraWords);
-                    }
+                  
                     int inicio = documento.indexOf("tab") + "tab".length();
                     int fin = documento.indexOf("/tab");
                     String textolista = documento.substring(inicio, fin);
                     textolista = textolista.trim().replaceAll(",","");
-
-                    for (int i = 0; i < textolista.length(); i++) {
+                    
+                    if (textolista.length()== 16){
+                        for (int i = 0; i < textolista.length(); i++) {
                         char letra = textolista.charAt(i);
-
                         listaLetras.insertFinal(letra);
+                        }
+                        
+                        int inicioWord=documento.indexOf("dic")+"/dic".length();
+                        int finWord=documento.indexOf("/dic");
+                        String ParaRecorrer=documento.substring(inicioWord,finWord);
+                        ParaRecorrer=ParaRecorrer.trim().replaceAll("/n", "");
+                        for (int i = 0; i < ParaRecorrer.length(); i++) {
+                            char letraWords=ParaRecorrer.charAt(i);
+                            listaWord.insertFinal(letraWords);
+                        }
+                        
+                        Ventana4 v4 = new Ventana4();
+                        this.setVisible(false);
+                        v4.setVisible(true);
+
+                    } 
+                    else {
+                        JOptionPane.showMessageDialog(null, "El tablero debe tener 16 letras");
                     }
 
                 } else {
-                    JOptionPane.showConfirmDialog(null, "Archivo no compatible");
+                    JOptionPane.showMessageDialog(null, "Archivo no compatible");
                 }
             }
         }
         
-        Ventana4 v4 = new Ventana4();
-        this.setVisible(false);
-        v4.setVisible(true);
     }//GEN-LAST:event_panelRound2MousePressed
 
     /**
