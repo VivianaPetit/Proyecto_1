@@ -207,7 +207,7 @@ public class Ventana4 extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla5ActionPerformed
 
     private void panelRound4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound4MousePressed
-        NodoLista letra = Ventana2.listaLetras.getFirst();
+        Nodo letra = Ventana2.listaLetras.getFirst();
         for(int i =0; i < Ventana2.listaLetras.getLenght(); i++) {
             
             String letraStr = String.valueOf(letra.getValor());
@@ -222,7 +222,7 @@ public class Ventana4 extends javax.swing.JFrame {
             letra = letra.getSiguiente();
         }
         
-        Diccionario.setText(Ventana2.listaWord.printString());
+        Diccionario.setText(Ventana2.listaWord.toString());
     }//GEN-LAST:event_panelRound4MousePressed
 
     private void panelRound5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound5MousePressed

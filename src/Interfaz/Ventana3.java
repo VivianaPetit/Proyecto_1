@@ -66,6 +66,11 @@ public class Ventana3 extends javax.swing.JFrame {
         panelRound2.setRoundBottomRight(10);
         panelRound2.setRoundTopLeft(10);
         panelRound2.setRoundTopRight(10);
+        panelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelRound2MousePressed(evt);
+            }
+        });
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -175,6 +180,12 @@ public class Ventana3 extends javax.swing.JFrame {
         this.setVisible(false);
         v4.setVisible(true);
     }//GEN-LAST:event_panelRound3MousePressed
+
+    private void panelRound2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MousePressed
+        Ventana5 v5 = new Ventana5();
+        this.setVisible(false);
+        v5.setVisible(true);
+    }//GEN-LAST:event_panelRound2MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

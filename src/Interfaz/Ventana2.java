@@ -9,7 +9,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import sopadeletrass.Lista;
+import sopadeletrass.*;
+
 
 
 
@@ -23,17 +24,18 @@ public class Ventana2 extends javax.swing.JFrame {
     File archivo;
     FileInputStream entrada;
     FileOutputStream salida;
-    static Lista listaWord;
-    static Lista listaLetras;
+    public static Lista<String> listaWord;
+    public static Lista<Character> listaLetras;
+    static Lista<Vertice> vertices; 
+    static Grafo grafo;
     Fuentes tipoFuente;
 
-    /**
-     * Creates new form ISopaDeLetras
-     */
+    
     public Ventana2() {
         initComponents();
-        listaWord = new Lista();
-        listaLetras = new Lista();
+        listaWord = new Lista<>();
+        listaLetras = new Lista<>();
+        vertices = new Lista<>();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         tipoFuente = new Fuentes();
@@ -145,15 +147,29 @@ public class Ventana2 extends javax.swing.JFrame {
                         for (int i = 0; i < textolista.length(); i++) {
                         char letra = textolista.charAt(i);
                         listaLetras.insertFinal(letra);
+                    }
+                        // Se crean los vertices del grafo.
+                        Nodo<Character> aux = listaLetras.getFirst();
+                        Vertice vertice;
+                        // Se crea una lista de vertices.
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 4; j++) {                                                        
+                                vertice = new Vertice(aux.getValor(),i,j);
+                                vertices.insertFinal(vertice);
+                                aux = aux.getSiguiente();
+                            }
                         }
                         
-                        int inicioWord=documento.indexOf("dic")+"/dic".length();
+                        grafo = new Grafo(vertices);
+                        
+                        
+                        int inicioWord=documento.indexOf("dic")+"dic".length();
                         int finWord=documento.indexOf("/dic");
-                        String ParaRecorrer=documento.substring(inicioWord,finWord);
-                        ParaRecorrer=ParaRecorrer.trim().replaceAll("/n", "");
-                        for (int i = 0; i < ParaRecorrer.length(); i++) {
-                            char letraWords=ParaRecorrer.charAt(i);
-                            listaWord.insertFinal(letraWords);
+                        String palabras=documento.substring(inicioWord,finWord);
+                        palabras = palabras.trim();
+                        
+                        for (String palabra : palabras.split("\n")) {
+                            listaWord.insertFinal(palabra);
                         }
                         
                         Ventana4 v4 = new Ventana4();

@@ -7,10 +7,11 @@ package sopadeletrass;
 /**
  *
  * @author KelvinCi
+ * @param <E>
  */
-public class Lista {
-    private NodoLista first;
-    private NodoLista last;
+public class Lista<E> {
+    private Nodo<E> first;
+    private Nodo<E> last;
     private int length;
     
     /**
@@ -31,15 +32,15 @@ public class Lista {
     /** 
     * Inserta un nuevo nodo al final de la lista. 
     *
-    * @param letra Caracter que almacena para crear el nodo.
+    * @param info almacena la info para crear el nodo.
     */
-    public void insertFinal(char letra){
-        NodoLista nuevo=new NodoLista(letra);
+    public void insertFinal(E info){
+        Nodo nuevo=new Nodo(info);
         if(esVacio()){
             first=nuevo;
             last=nuevo;
         }else{
-            NodoLista aux = last;
+            Nodo aux = last;
             aux.setSiguiente(nuevo);
             last = nuevo;
         }
@@ -51,33 +52,33 @@ public class Lista {
      * @return String cadena con los elementos de la lista.
     */    
     }
-     public String printString() {
+     public String toString() {
         String cadena = "";
         if (esVacio()) {
             cadena = cadena + "No hay palabras en el diccionario"; 
         } else {
-            
-            NodoLista aux = first;
+            Nodo aux = first;
             while (aux != null) {
-                cadena = cadena + aux.getValor();
+                cadena = cadena + aux.getValor() + "\n";
                 aux = aux.getSiguiente();
             }
         }
         return cadena; 
     }
-    public NodoLista getFirst() {
+     
+    public Nodo<E> getFirst() {
         return first;
     }
 
-    public void setFirst(NodoLista first) {
+    public void setFirst(Nodo<E> first) {
         this.first = first;
     }
 
-    public NodoLista getLast() {
+    public Nodo<E> getLast() {
         return last;
     }
 
-    public void setLast(NodoLista last) {
+    public void setLast(Nodo<E> last) {
         this.last = last;
     }
 
