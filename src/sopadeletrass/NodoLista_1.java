@@ -8,11 +8,11 @@ package sopadeletrass;
  *
  * @author KelvinCi
  */
-public class NodoLista {
+public class NodoLista_1 {
     private char valor;
-    private NodoLista siguiente;
-    private NodoLista anterior;
-    public NodoLista(char valor){
+    private NodoLista_1 siguiente;
+    private NodoLista_1 anterior;
+    public NodoLista_1(char valor){
         this.siguiente=null;
         this.anterior=null;
         this.valor=valor;
@@ -26,19 +26,19 @@ public class NodoLista {
         this.valor = valor;
     }
 
-    public NodoLista getDere() {
+    public NodoLista_1 getDere() {
         return siguiente;
     }
 
-    public void setDere(NodoLista dere) {
+    public void setDere(NodoLista_1 dere) {
         this.siguiente = dere;
     }
 
-    public NodoLista getIzq() {
+    public NodoLista_1 getIzq() {
         return anterior;
     }
 
-    public void setIzq(NodoLista izq) {
+    public void setIzq(NodoLista_1 izq) {
         this.anterior = izq;
     }
     
