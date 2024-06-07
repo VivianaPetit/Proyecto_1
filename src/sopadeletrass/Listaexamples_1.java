@@ -9,8 +9,8 @@ package sopadeletrass;
  * @author KelvinCi
  */
 public class Listaexamples_1 {
-    private NodoLista first;
-    private NodoLista last;
+    private NodoLista_1 first;
+    private NodoLista_1 last;
     private int length;
     public Listaexamples_1(){
         this.first=null;
@@ -19,7 +19,7 @@ public class Listaexamples_1 {
     }
 
     public void insertarbegin(char letra){
-        NodoLista letras=new NodoLista(letra);
+        NodoLista_1 letras=new NodoLista_1(letra);
         if(first==null){
             first=letras;
             last=letras;
@@ -32,7 +32,7 @@ public class Listaexamples_1 {
         }
     }
     public void insertFinal(char letra){
-        NodoLista nuevo=new NodoLista(letra);
+        NodoLista_1 nuevo=new NodoLista_1(letra);
         if(first==null){
             first=nuevo;
             last=nuevo;
@@ -46,26 +46,26 @@ public class Listaexamples_1 {
         if (first==null) {
             System.out.println("Lista Vacia");
         } else {
-            NodoLista temp = first;
+            NodoLista_1 temp = first;
             while (temp != null) {
                 System.out.print(  temp.getValor() );
                 temp = temp.getDere();
             }
         }
     }
-    public NodoLista getFirst() {
+    public NodoLista_1 getFirst() {
         return first;
     }
 
-    public void setFirst(NodoLista first) {
+    public void setFirst(NodoLista_1 first) {
         this.first = first;
     }
 
-    public NodoLista getLast() {
+    public NodoLista_1 getLast() {
         return last;
     }
 
-    public void setLast(NodoLista last) {
+    public void setLast(NodoLista_1 last) {
         this.last = last;
     }
 
