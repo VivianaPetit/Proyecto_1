@@ -8,11 +8,11 @@ package sopadeletrass;
  *
  * @author KelvinCi
  */
-public class Listaexamples {
+public class Listaexamples_1 {
     private NodoLista first;
     private NodoLista last;
     private int length;
-    public Listaexamples(){
+    public Listaexamples_1(){
         this.first=null;
         this.last=null;
         this.length=0;

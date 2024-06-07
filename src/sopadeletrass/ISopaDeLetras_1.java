@@ -302,8 +302,8 @@ public class ISopaDeLetras_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         //String letras = "C,H,A,O,X,A,T,M,P,R,R,A,A,O,R,O";
         StringBuilder palabraBuilder = new StringBuilder();
-        Listaexamples lista = new Listaexamples();
-        Listaexamples listaWord = new Listaexamples();
+        Listaexamples_1 lista = new Listaexamples_1();
+        Listaexamples_1 listaWord = new Listaexamples_1();
         if (seleccionar.showDialog(null, "Abrir") == JFileChooser.APPROVE_OPTION) {
             archivo = seleccionar.getSelectedFile();
             if (archivo.canRead()) {
