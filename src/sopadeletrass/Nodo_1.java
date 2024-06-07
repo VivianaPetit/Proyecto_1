@@ -8,7 +8,7 @@ package SopaDeLetrass;
  *
  * @author KelvinCi
  */
-public class Nodo {
+public class Nodo_1 {
 
     private String letra;
     
@@ -20,7 +20,7 @@ public class Nodo {
     private Nodo DiagonalArribaIzquierda;
     private Nodo DiagonalAbajoDerecha;
     private Nodo DiagonalAbajoIzquierda;
-    public Nodo(String letra){
+    public Nodo_1(String letra){
         this.letra=letra;
         this.DiagonalAbajoDerecha=null;
         this.DiagonalAbajoIzquierda=null;
