@@ -8,7 +8,7 @@ package sopadeletrass;
  *
  * @author KelvinCi
  */
-public class SopaDeLetrass {
+public class SopaDeLetrass_1 {
 
     public static void main(String[] args) {
 //        ISopaDeLetras ventana=new ISopaDeLetras();
