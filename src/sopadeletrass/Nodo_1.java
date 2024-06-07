@@ -12,14 +12,14 @@ public class Nodo_1 {
 
     private String letra;
     
-    private Nodo izq;
-    private Nodo der;
-    private Nodo arriba;
-    private Nodo abajo;
-    private Nodo DiagonalArribaDerecha;
-    private Nodo DiagonalArribaIzquierda;
-    private Nodo DiagonalAbajoDerecha;
-    private Nodo DiagonalAbajoIzquierda;
+    private Nodo_1 izq;
+    private Nodo_1 der;
+    private Nodo_1 arriba;
+    private Nodo_1 abajo;
+    private Nodo_1 DiagonalArribaDerecha;
+    private Nodo_1 DiagonalArribaIzquierda;
+    private Nodo_1 DiagonalAbajoDerecha;
+    private Nodo_1 DiagonalAbajoIzquierda;
     public Nodo_1(String letra){
         this.letra=letra;
         this.DiagonalAbajoDerecha=null;
@@ -41,67 +41,67 @@ public class Nodo_1 {
         this.letra = letra;
     }
 
-    public Nodo getIzq() {
+    public Nodo_1 getIzq() {
         return izq;
     }
 
-    public void setIzq(Nodo izq) {
+    public void setIzq(Nodo_1 izq) {
         this.izq = izq;
     }
 
-    public Nodo getDer() {
+    public Nodo_1 getDer() {
         return der;
     }
 
-    public void setDer(Nodo der) {
+    public void setDer(Nodo_1 der) {
         this.der = der;
     }
 
-    public Nodo getArriba() {
+    public Nodo_1 getArriba() {
         return arriba;
     }
 
-    public void setArriba(Nodo arriba) {
+    public void setArriba(Nodo_1 arriba) {
         this.arriba = arriba;
     }
 
-    public Nodo getAbajo() {
+    public Nodo_1 getAbajo() {
         return abajo;
     }
 
-    public void setAbajo(Nodo abajo) {
+    public void setAbajo(Nodo_1 abajo) {
         this.abajo = abajo;
     }
 
-    public Nodo getDiagonalArribaDerecha() {
+    public Nodo_1 getDiagonalArribaDerecha() {
         return DiagonalArribaDerecha;
     }
 
-    public void setDiagonalArribaDerecha(Nodo DiagonalArribaDerecha) {
+    public void setDiagonalArribaDerecha(Nodo_1 DiagonalArribaDerecha) {
         this.DiagonalArribaDerecha = DiagonalArribaDerecha;
     }
 
-    public Nodo getDiagonalArribaIzquierda() {
+    public Nodo_1 getDiagonalArribaIzquierda() {
         return DiagonalArribaIzquierda;
     }
 
-    public void setDiagonalArribaIzquierda(Nodo DiagonalArribaIzquierda) {
+    public void setDiagonalArribaIzquierda(Nodo_1 DiagonalArribaIzquierda) {
         this.DiagonalArribaIzquierda = DiagonalArribaIzquierda;
     }
 
-    public Nodo getDiagonalAbajoDerecha() {
+    public Nodo_1 getDiagonalAbajoDerecha() {
         return DiagonalAbajoDerecha;
     }
 
-    public void setDiagonalAbajoDerecha(Nodo DiagonalAbajoDerecha) {
+    public void setDiagonalAbajoDerecha(Nodo_1 DiagonalAbajoDerecha) {
         this.DiagonalAbajoDerecha = DiagonalAbajoDerecha;
     }
 
-    public Nodo getDiagonalAbajoIzquierda() {
+    public Nodo_1 getDiagonalAbajoIzquierda() {
         return DiagonalAbajoIzquierda;
     }
 
-    public void setDiagonalAbajoIzquierda(Nodo DiagonalAbajoIzquierda) {
+    public void setDiagonalAbajoIzquierda(Nodo_1 DiagonalAbajoIzquierda) {
         this.DiagonalAbajoIzquierda = DiagonalAbajoIzquierda;
     }
     
