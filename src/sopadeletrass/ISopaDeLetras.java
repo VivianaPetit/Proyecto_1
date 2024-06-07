@@ -36,6 +36,7 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         this.grafo = grafo;
         this.diccionario = diccionario;
         this.path = path;
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
