@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/andre/Documents/EDD-Cosas/Proyecto_1/Proyecto_1/src/sopadeletrass/Grafos.java</file>
             <file>file:/C:/Users/andre/Documents/EDD-Cosas/Proyecto_1/Proyecto_1/src/sopadeletrass/SopaDeLetrass.java</file>
@@ -9,5 +10,8 @@
             <file>file:/C:/Users/andre/Documents/EDD-Cosas/Proyecto_1/Proyecto_1/src/sopadeletrass/ISopaDeLetras.java</file>
             <file>file:/C:/Users/andre/Documents/EDD-Cosas/Proyecto_1/Proyecto_1/src/sopadeletrass/AuxiliarBFS.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
     </open-files>
 </project-private>

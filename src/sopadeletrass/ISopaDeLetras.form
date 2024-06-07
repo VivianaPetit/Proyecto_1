@@ -53,8 +53,146 @@
     <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-11,0,0,2,-77"/>
   </AuxValues>
 
+<<<<<<< HEAD
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
     <Property name="useNullLayout" type="boolean" value="false"/>
+=======
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="tres" alignment="1" pref="0" max="32767" attributes="0"/>
+                  <Component id="dos" alignment="1" pref="0" max="32767" attributes="0"/>
+                  <Component id="v00" alignment="1" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="cuatro" alignment="1" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="ocho" pref="0" max="32767" attributes="0"/>
+                          <Component id="siete" pref="0" max="32767" attributes="0"/>
+                          <Component id="seis" pref="0" max="32767" attributes="0"/>
+                          <Component id="v01" min="-2" pref="37" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="nueve" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="diez" pref="0" max="32767" attributes="0"/>
+                          <Component id="once" pref="0" max="32767" attributes="0"/>
+                          <Component id="doce" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="catorce" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="quince" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="dieciseis" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="trece" min="-2" pref="35" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="empezar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="palabra" min="-2" pref="71" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="v01" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="trece" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="v00" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nueve" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="catorce" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="seis" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="diez" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tres" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="siete" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="once" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="quince" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="cuatro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ocho" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="doce" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dieciseis" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="empezar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="palabra" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JButton" name="empezar">
@@ -275,6 +413,7 @@
         </Component>
       </SubComponents>
     </Container>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="bfs">
       <Properties>
         <Property name="text" type="java.lang.String" value="BFS"/>
@@ -301,6 +440,19 @@
           <AbsoluteConstraints x="520" y="26" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
+=======
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="buscar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="palabra">
+    </Component>
+    <Container class="javax.swing.JPanel" name="jPanel4">
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="false"/>
@@ -308,6 +460,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+<<<<<<< HEAD
         <Property name="text" type="java.lang.String" value="BUSCAR DICCIONARIO:"/>
       </Properties>
       <Constraints>
@@ -391,6 +544,10 @@
           <AbsoluteConstraints x="40" y="300" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
+=======
+        <Property name="text" type="java.lang.String" value="INGRESAR PALABRA A BUSCAR"/>
+      </Properties>
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
     </Component>
   </SubComponents>
 </Form>

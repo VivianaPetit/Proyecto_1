@@ -13,6 +13,7 @@ public class SopaDeLetrass {
     public static void main(String[] args) {
 //        ISopaDeLetras ventana=new ISopaDeLetras();
 //        ventana.setVisible(true);
+<<<<<<< HEAD
 //        Grafos grafo = new Grafos(16);
 //        String letras = "CHAOXATMPRRAAORO";
 //        for (int i = 0; i < letras.length(); i++) {
@@ -78,6 +79,20 @@ public class SopaDeLetrass {
 //        System.out.println();
 //    }
     Txt t = new Txt();
+=======
+        Grafos grafo = new Grafos(16);
+        String letras = "ABCDEFGHIJKLMNOP";
+        for (int i = 0; i < letras.length(); i++) {
+            grafo.insertar_vertices(letras.charAt(i));
+        }
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 16; j++) {
+                grafo.insertarArista(i, j);
+            }
+        }
+        System.out.println(grafo.matriz_ady[1][2].origen.letra +""+grafo.matriz_ady[1][2].destino.letra );
+
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
     }
 
 }

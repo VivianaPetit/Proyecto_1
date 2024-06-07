@@ -20,10 +20,47 @@ import org.graphstream.graph.implementations.*;
  */
 public class ISopaDeLetras extends javax.swing.JFrame {
 
+<<<<<<< HEAD
     public Grafos grafo;
 //    public String letras;
     public String[] diccionario;
     public String path;
+=======
+    JFileChooser seleccionar = new JFileChooser();
+    File archivo;
+    FileInputStream entrada;
+    FileOutputStream salida;
+    private static String[] diccionario = {};
+    private static String[] palabrasEncontradas = new String[100];
+    char[][] letras = new char[4][4];
+    String linea;
+    Tablero tablero = new Tablero(letras);
+    private static int contadorPalabrasEncontradas = 0;
+    
+
+    public static void agregarAlDiccionario(String nuevaPalabra) {
+        // Asegurarse de que la nueva palabra no esté ya en el diccionario
+        if (!palabraYaEnDiccionario(nuevaPalabra)) {
+            // Crear un nuevo array con tamaño aumentado para contener la nueva palabra
+            String[] nuevoDiccionario = new String[diccionario.length + 1];
+            // Copiar el contenido del diccionario actual al nuevo array
+            System.arraycopy(diccionario, 0, nuevoDiccionario, 0, diccionario.length);
+            // Agregar la nueva palabra al final del nuevo array
+            nuevoDiccionario[diccionario.length] = nuevaPalabra;
+            // Asignar el nuevo array como el diccionario actual
+            diccionario = nuevoDiccionario;
+        }
+    }
+
+    public static boolean palabraYaEnDiccionario(String palabra) {
+        for (String palabraDiccionario : diccionario) {
+            if (palabraDiccionario.equals(palabra)) {
+                return true;
+            }
+        }
+        return false;
+    }
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
 
     /**
      * Creates new form ISopaDeLetras
@@ -146,6 +183,7 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         contenido = new javax.swing.JTextArea();
+<<<<<<< HEAD
         bfs = new javax.swing.JButton();
         palabra = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
@@ -157,6 +195,12 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         dic = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
+=======
+        jButton1 = new javax.swing.JButton();
+        palabra = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -242,6 +286,7 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         contenido.setRows(5);
         jScrollPane2.setViewportView(contenido);
 
+<<<<<<< HEAD
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 250, 160));
 
         bfs.setText("BFS");
@@ -268,11 +313,15 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         getContentPane().add(dfs, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
 
         jButton1.setText("GuardarTXT");
+=======
+        jButton1.setText("buscar");
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, -1, -1));
 
         jLabel2.setText("Diccionario:");
@@ -289,18 +338,183 @@ public class ISopaDeLetras extends javax.swing.JFrame {
 
         jLabel4.setText("Palabras Encontradas:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+=======
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("INGRESAR PALABRA A BUSCAR");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(tres, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(dos, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(v00, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ocho, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(siete, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(seis, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(v01, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nueve, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(diez, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(once, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(doce, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(catorce, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(quince, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(dieciseis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(trece, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(empezar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)))
+                .addGap(25, 25, 25))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(palabra, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(90, 90, 90))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(v01, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(trece, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(v00, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nueve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(catorce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(seis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(diez, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(siete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(once, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(quince, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cuatro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ocho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(doce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dieciseis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(empezar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(palabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //public void lectura
     private void empezarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezarActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         if (this.palabra.getText().length() >= 3) {
             boolean found = false;
             for (int i = 0; i < this.diccionario.length; i++) {
                 if (this.diccionario[i].equals(this.palabra.getText().toUpperCase())) {
                     found = true;
                     break;
+=======
+        //String letras = "C,H,A,O,X,A,T,M,P,R,R,A,A,O,R,O";
+        StringBuilder palabraBuilder = new StringBuilder();
+        Listaexamples lista = new Listaexamples();
+        Listaexamples listaWord = new Listaexamples();
+        if (seleccionar.showDialog(null, "Abrir") == JFileChooser.APPROVE_OPTION) {
+            archivo = seleccionar.getSelectedFile();
+            if (archivo.canRead()) {
+                if (archivo.getName().endsWith("txt")) {
+                    String documento = AbrirArchivo(archivo);
+                    contenido.setText(documento);
+                    int InicioPalabrasDicc = documento.indexOf("dic") + "/dic".length();
+                    int FinalPalabrasDicc = documento.indexOf("/dic");
+                    String ParaRecorrer = documento.substring(InicioPalabrasDicc, FinalPalabrasDicc);
+                    ParaRecorrer = ParaRecorrer.replaceAll("/n", "");
+                    for (int i = 0; i < ParaRecorrer.length(); i++) {
+                        char letraWords = ParaRecorrer.charAt(i);
+                        listaWord.insertFinal(letraWords);//Aqui termino de recorrer las palabras letra por letra
+                        char letraDiferenteDuda = ' ';
+
+                        if (letraDiferenteDuda != letraWords) {
+                            palabraBuilder.append(letraWords);
+                            String palabraBuscar = palabraBuilder.toString();
+
+                            if (palabraBuilder.length() >= 4 || palabraBuscar.contains("ORO")) {
+                                palabraBuilder.append(',');
+                                String palabraDiccionario = palabraBuilder.toString();
+                                agregarAlDiccionario(palabraDiccionario);
+                            }
+                        }
+
+                    }
+
+                    //aqui se leen las letras
+                    int fila = 0;
+                    String[] letrasEnLinea = linea.split(",");
+                    int inicio = documento.indexOf("tab") + "tab".length();
+                    int fin = documento.indexOf("/tab");
+                    String textolista = documento.substring(inicio, fin);
+                    textolista = textolista.replaceAll(",", "");
+                    for (int i = 0; i < textolista.length(); i++) {
+                        char letra = textolista.charAt(i);
+                        letras[fila][i] = letrasEnLinea[i].charAt(0);
+                        lista.insertFinal(letra);
+
+                    }
+
+                } else {
+                    JOptionPane.showConfirmDialog(null, "Archivo no compatible");
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
                 }
             }
             if (!found) {
@@ -326,6 +540,65 @@ public class ISopaDeLetras extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_empezarActionPerformed
+    public static boolean palabraYaEncontrada(String palabra) {
+        for (int i = 0; i < contadorPalabrasEncontradas; i++) {
+            if (palabrasEncontradas[i].equals(palabra)) {
+                return true;
+            }
+        }
+        return false;
+    }
+ public static boolean esPalabraValida(String palabra) {
+        for (int i = 0; i < diccionario.length; i++) {
+            if (diccionario[i].equals(palabra)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void dfs(Tablero tablero, int fila, int columna, String palabraActual, boolean[][] visitado) {
+        if (palabraActual.length() >= 3 && esPalabraValida(palabraActual)) {
+            if (!palabraYaEncontrada(palabraActual)) {
+                palabrasEncontradas[contadorPalabrasEncontradas++] = palabraActual;
+            }
+        }
+
+        if (palabraActual.length() > 16) { // No puede ser mayor a 16 en un tablero de 4x4
+            return;
+        }
+
+        visitado[fila][columna] = true;
+
+        for (int df = -1; df <= 1; df++) {
+            for (int dc = -1; dc <= 1; dc++) {
+                int nf = fila + df;
+                int nc = columna + dc;
+
+                if (nf >= 0 && nf < 4 && nc >= 0 && nc < 4 && !visitado[nf][nc]) {
+                    if (tablero.esAdyacente(fila, columna, nf, nc)) {
+                        dfs(tablero, nf, nc, palabraActual + tablero.obtenerLetra(nf, nc), visitado);
+                    }
+                }
+            }
+        }
+
+        visitado[fila][columna] = false;
+    }
+
+    public static void buscarPalabras(Tablero tablero) {
+        for (int fila = 0; fila < 4; fila++) {
+            for (int columna = 0; columna < 4; columna++) {
+                boolean[][] visitado = new boolean[4][4];
+                dfs(tablero, fila, columna, "", visitado);
+            }
+        }
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        buscarPalabras(tablero);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     private void bfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bfsActionPerformed
@@ -399,9 +672,12 @@ public class ISopaDeLetras extends javax.swing.JFrame {
     private javax.swing.JButton empezar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+=======
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

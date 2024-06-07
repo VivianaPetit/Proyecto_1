@@ -4,9 +4,12 @@
  */
 package sopadeletrass;
 
+<<<<<<< HEAD
 import java.util.LinkedList;
 import java.util.Queue;
 
+=======
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
 /**
  *
  * @author KelvinCi
@@ -29,19 +32,33 @@ public class Grafos {
                 matriz_ady[i][j] = matriz_ady[j][i] = new Adyacencia(false);
             }
         }
+<<<<<<< HEAD
         letras = new NodoGrafo[max];
+=======
+        letras = new NodoGrafo[max] ;
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
     }
 
     public void insertar_vertices(char letra) {
         NodoGrafo nuevo = new NodoGrafo(num_vertices, letra);
         letras[num_vertices] = nuevo;
+<<<<<<< HEAD
 
+=======
+        
+        
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
         if (num_vertices + 1 <= max_nodos) {
             for (int i = 0; i < num_vertices + 1; i++) {
                 for (int j = num_vertices; j < num_vertices + 1; j++) {
                     matriz_ady[i][j].es_adyacente = matriz_ady[j][i].es_adyacente = false;
+<<<<<<< HEAD
                     matriz_ady[i][j].destino = matriz_ady[j][i].origen = nuevo;
                     matriz_ady[i][j].origen = matriz_ady[j][i].origen = letras[i];
+=======
+                    matriz_ady[i][j].destino = matriz_ady[j][i].origen= nuevo;
+                    matriz_ady[i][j].origen = matriz_ady[j][i].origen= letras[i];
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
                 }
             }
             num_vertices += 1;
@@ -109,15 +126,24 @@ public class Grafos {
     public void imprimirTabla() {
         System.out.println("La matriz contiene " + num_vertices + " vértices: \n");
         for (int i = 0; i < num_vertices; i++) {
+<<<<<<< HEAD
             System.out.print(this.letras[i].letra + "   ");
             for (int j = 0; j < num_vertices; j++) {
                 if (matriz_ady[i][j].es_adyacente) {
                     System.out.print(this.letras[j].letra);
+=======
+            for (int j = 0; j < num_vertices; j++) {
+                if (matriz_ady[i][j].es_adyacente) {
+                    System.out.print("1 ");
+                } else {
+                    System.out.print("0 ");
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
                 }
             }
             System.out.println("");
         }
     }
+<<<<<<< HEAD
 
 
     public NodoGrafo[] dfs(String palabra) {
@@ -221,4 +247,6 @@ private boolean bfsSearchFromVertexHelper(int vertex, String word, int index, bo
 
         }
     }
+=======
+>>>>>>> 0cc2fd744bf8de17b816d09818fe9b5ad8d2f9b7
 }
