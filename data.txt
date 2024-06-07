@@ -1,0 +1,15 @@
+dic
+CHAO
+OTRA
+PATA
+ORO
+RATA
+PERA
+JUANA
+CASA
+PINA
+XRRAMO
+/dic
+tab
+C,H,A,O,X,A,T,M,P,R,R,A,A,O,R,O
+/tab
