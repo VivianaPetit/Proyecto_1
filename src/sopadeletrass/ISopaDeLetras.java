@@ -400,8 +400,7 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         long endTime = System.nanoTime();
 
         long timeTaken = endTime - startTime;
-        System.out.println("Time taken: " + (timeTaken / 1_000_000) + " milliseconds");
-
+        this.contenido.setText(this.contenido.getText() + "\n\nTime taken: " + (timeTaken / 1_000_000) + " milliseconds");
     }//GEN-LAST:event_bfsActionPerformed
 
     private void dfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dfsActionPerformed
@@ -426,8 +425,7 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         long endTime = System.nanoTime();
 
         long timeTaken = endTime - startTime;
-        System.out.println("Time taken: " + (timeTaken / 1_000_000) + " milliseconds");
-
+        this.contenido.setText(this.contenido.getText() + "\n\nTime taken: " + (timeTaken / 1_000_000) + " milliseconds");
     }//GEN-LAST:event_dfsActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
