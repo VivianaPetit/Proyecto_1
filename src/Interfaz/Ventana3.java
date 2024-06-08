@@ -4,29 +4,72 @@
  */
 package Interfaz;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
+import sopadeletrass.Grafos;
+
+
 /**
  *
  * @author USUARIO
  */
 public class Ventana3 extends javax.swing.JFrame {
-
+    Fuentes tipoFuente;
     /**
      * Creates new form Ventana3
      */
-    Fuentes tipoFuente; 
-    
     public Ventana3() {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         tipoFuente = new Fuentes();
-        jLabel2.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 23));
         jLabel3.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 23));
         jLabel4.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 35));
         jLabel5.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 20));
         jLabel6.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 23));
+        jLabel10.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 23));
     }
+    
+    public void sobrescribirTXT(Grafos grafo, String[] diccionario, String direccion_txt) {
+        String datos = "";
+        String linea;
+        String datos_txt = "";
+        String path = direccion_txt;
+        File file = new File(path);
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.write("dic" + "\n");
+            for (int i = 0; i < grafo.max_nodos; i++) {
+                try {
+                    pw.write(diccionario[i] + "\n");
 
+                } catch (Exception e) {
+                }
+            }
+            pw.write("/dic" + "\n");
+            pw.write("tab" + "\n");
+            String letras = "";
+            for (int i = 0; i < grafo.max_nodos; i++) {
+                if (i != grafo.max_nodos - 1) {
+                    letras += grafo.letras[i].letra + ",";
+                } else {
+                    letras += grafo.letras[i].letra + "\n";
+
+                }
+            }
+            pw.write(letras);
+            pw.write("/tab" + "\n");
+            pw.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,8 +80,6 @@ public class Ventana3 extends javax.swing.JFrame {
     private void initComponents() {
 
         panelRound1 = new Interfaz.PanelRound();
-        panelRound2 = new Interfaz.PanelRound();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         panelRound3 = new Interfaz.PanelRound();
@@ -50,6 +91,8 @@ public class Ventana3 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         panelRound5 = new Interfaz.PanelRound();
         jLabel6 = new javax.swing.JLabel();
+        panelRound9 = new Interfaz.PanelRound();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,25 +103,6 @@ public class Ventana3 extends javax.swing.JFrame {
         panelRound1.setRoundTopLeft(10);
         panelRound1.setRoundTopRight(10);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panelRound2.setBackground(new java.awt.Color(185, 148, 112));
-        panelRound2.setRoundBottomLeft(10);
-        panelRound2.setRoundBottomRight(10);
-        panelRound2.setRoundTopLeft(10);
-        panelRound2.setRoundTopRight(10);
-        panelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelRound2MousePressed(evt);
-            }
-        });
-        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image-removebg-preview (3).png"))); // NOI18N
-        jLabel2.setText("          Actualizar Diccionario");
-        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 50));
-
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 310, 50));
 
         jPanel1.setBackground(new java.awt.Color(185, 148, 112));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,7 +130,7 @@ public class Ventana3 extends javax.swing.JFrame {
         jLabel3.setText("                         Ver Tablero");
         panelRound3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 50));
 
-        panelRound1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 310, 50));
+        panelRound1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 310, 50));
 
         jPanel2.setBackground(new java.awt.Color(185, 148, 112));
 
@@ -147,6 +171,19 @@ public class Ventana3 extends javax.swing.JFrame {
         panelRound4.setRoundBottomRight(10);
         panelRound4.setRoundTopLeft(10);
         panelRound4.setRoundTopRight(10);
+        panelRound4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panelRound4MouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                panelRound4MouseMoved(evt);
+            }
+        });
+        panelRound4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelRound4MousePressed(evt);
+            }
+        });
         panelRound4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,13 +191,21 @@ public class Ventana3 extends javax.swing.JFrame {
         jLabel5.setText("               Buscar Palabra Específica");
         panelRound4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 50));
 
-        panelRound1.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 310, 50));
+        panelRound1.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 310, 50));
 
         panelRound5.setBackground(new java.awt.Color(185, 148, 112));
         panelRound5.setRoundBottomLeft(10);
         panelRound5.setRoundBottomRight(10);
         panelRound5.setRoundTopLeft(10);
         panelRound5.setRoundTopRight(10);
+        panelRound5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelRound5MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                panelRound5MouseReleased(evt);
+            }
+        });
         panelRound5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,7 +213,26 @@ public class Ventana3 extends javax.swing.JFrame {
         jLabel6.setText("                   Buscar Palabras");
         panelRound5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 50));
 
-        panelRound1.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 310, 50));
+        panelRound1.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 310, 50));
+
+        panelRound9.setBackground(new java.awt.Color(185, 148, 112));
+        panelRound9.setRoundBottomLeft(10);
+        panelRound9.setRoundBottomRight(10);
+        panelRound9.setRoundTopLeft(10);
+        panelRound9.setRoundTopRight(10);
+        panelRound9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelRound9MousePressed(evt);
+            }
+        });
+        panelRound9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image-removebg-preview (3).png"))); // NOI18N
+        jLabel10.setText("          Actualizar Diccionario");
+        panelRound9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 50));
+
+        panelRound1.add(panelRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 310, 50));
 
         getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, -1));
 
@@ -181,20 +245,48 @@ public class Ventana3 extends javax.swing.JFrame {
         v4.setVisible(true);
     }//GEN-LAST:event_panelRound3MousePressed
 
-    private void panelRound2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MousePressed
+    private void panelRound4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound4MouseDragged
+        
+    }//GEN-LAST:event_panelRound4MouseDragged
+
+    private void panelRound4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound4MouseMoved
+       
+    }//GEN-LAST:event_panelRound4MouseMoved
+
+    private void panelRound9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound9MousePressed
+        Ventana6 v6 = new Ventana6();
+        this.setVisible(false);
+        v6.setVisible(true);
+    }//GEN-LAST:event_panelRound9MousePressed
+
+    private void panelRound5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound5MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelRound5MouseReleased
+
+    private void panelRound5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound5MousePressed
         Ventana5 v5 = new Ventana5();
         this.setVisible(false);
         v5.setVisible(true);
-    }//GEN-LAST:event_panelRound2MousePressed
+    }//GEN-LAST:event_panelRound5MousePressed
+
+    private void panelRound4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound4MousePressed
+        Ventana7 v7 = new Ventana7();
+        this.setVisible(false);
+        v7.setVisible(true);
+    }//GEN-LAST:event_panelRound4MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -203,5 +295,9 @@ public class Ventana3 extends javax.swing.JFrame {
     private Interfaz.PanelRound panelRound3;
     private Interfaz.PanelRound panelRound4;
     private Interfaz.PanelRound panelRound5;
+    private Interfaz.PanelRound panelRound6;
+    private Interfaz.PanelRound panelRound7;
+    private Interfaz.PanelRound panelRound8;
+    private Interfaz.PanelRound panelRound9;
     // End of variables declaration//GEN-END:variables
 }

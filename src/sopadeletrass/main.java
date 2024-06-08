@@ -3,23 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package sopadeletrass;
-
 import Interfaz.*;
-
 /**
  *
  * @author KelvinCi
  */
-public class SopaDeLetrass {
+public class main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        
-        Ventana1 nueva=new Ventana1();
-        nueva.setVisible(true);
+        Ventana1 v1 =new Ventana1();
+        v1.setVisible(true);
         
     }
-    
+
 }

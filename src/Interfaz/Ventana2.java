@@ -4,15 +4,10 @@
  */
 package Interfaz;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import sopadeletrass.*;
-
-
-
+import java.io.*;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -20,22 +15,14 @@ import sopadeletrass.*;
  */
 public class Ventana2 extends javax.swing.JFrame {
 
-    JFileChooser seleccionar = new JFileChooser();
-    File archivo;
-    FileInputStream entrada;
-    FileOutputStream salida;
-    public static Lista<String> listaWord;
-    public static Lista<Character> listaLetras;
-    static Lista<Vertice> vertices; 
-    static Grafo grafo;
+    public static Grafos grafo;
+    public static String[] diccionario;
+    public static String path;
     Fuentes tipoFuente;
 
     
     public Ventana2() {
         initComponents();
-        listaWord = new Lista<>();
-        listaLetras = new Lista<>();
-        vertices = new Lista<>();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         tipoFuente = new Fuentes();
@@ -46,22 +33,97 @@ public class Ventana2 extends javax.swing.JFrame {
         
     }
 
-    public String AbrirArchivo(File archivo) {
-        String documento = "";
+    public Grafos leerTXT(String direccion_txt) {
+        String datos = "";
+        String linea;
+        String datos_txt = "";
+        String path = direccion_txt;
+        int modo = 1;
+        File file = new File(path);
+        String lineas[];
         try {
-            entrada = new FileInputStream(archivo);
-            int ascci;
-            while ((ascci = entrada.read()) != -1) {
-                char caract = (char) ascci;
-                documento += caract;
-            }
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, "Error de: " + e);
+            if (!file.exists()) {
+                file.createNewFile();
+            } else {
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((linea = br.readLine()) != null) {
+                    if (!linea.isEmpty() && !linea.equals("dic")) {
+                        if (linea.equals("tab")) {
+                            modo = 2;
+                        } else if (linea.equals("/dic") || linea.equals("/tab")) {
+                        } else if (modo == 1) {
+                            datos_txt += (linea) + ",";
+                        } else if (modo == 2) {
+                            linea = linea.replace(" ", "");
+                            linea = linea.replace(",", "");
+                            this.grafo = new Grafos(16);
+                            for (int i = 0; i < linea.length(); i++) {
+                                grafo.insertar_vertices(linea.charAt(i));
+                            }
+                            this.armarGrafo();
+                           
+                        }
+                    }
+                }
+                if (!"".equals(datos_txt)) {
+                    datos = datos_txt;
 
+                }
+                this.diccionario = datos_txt.replace(" ", "").split(",");
+                br.close();
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
-        return documento;
+
+        return grafo;
     }
 
+    public void armarGrafo() {
+        int[] indices = {-5, -4, -3, -1, 1, 3, 4, 5};
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 8; j++) {
+                try {
+                    switch (i) {
+                        case 0, 4, 8, 12 -> {
+                            if (indices[j] != -5 && indices[j] != -1 && indices[j] != 3) {
+                                this.grafo.insertarArista(i, i + indices[j]);
+//                                this.sopa[i].agregar(this.sopa[i + indices[j]]);
+                            }
+                        }
+                        case 3, 7, 11, 15 -> {
+                            if (indices[j] != -3 && indices[j] != +1 && indices[j] != 5) {
+                                this.grafo.insertarArista(i, i + indices[j]);
+
+                            }
+                        }
+                        default ->
+                            this.grafo.insertarArista(i, i + indices[j]);
+
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+        }
+    }
+
+    public String buscarArchivo() {
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de Texto", "txt");
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(filter);
+        File ruta = new File("e:/carpeta/");
+        fileChooser.setCurrentDirectory(ruta);
+        int result = fileChooser.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            String dir = String.valueOf(file).replace("\\", "//");
+            return dir;
+        }
+        return "";
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,61 +194,11 @@ public class Ventana2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelRound2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MousePressed
-        if (seleccionar.showDialog(null, "Abrir") == JFileChooser.APPROVE_OPTION) {
-            archivo = seleccionar.getSelectedFile();
-            if (archivo.canRead()) {
-                if (archivo.getName().endsWith("txt")) {
-                    String documento = AbrirArchivo(archivo);
-                  
-                    int inicio = documento.indexOf("tab") + "tab".length();
-                    int fin = documento.indexOf("/tab");
-                    String textolista = documento.substring(inicio, fin);
-                    textolista = textolista.trim().replaceAll(",","");
-                    
-                    if (textolista.length()== 16){
-                        for (int i = 0; i < textolista.length(); i++) {
-                        char letra = textolista.charAt(i);
-                        listaLetras.insertFinal(letra);
-                    }
-                        // Se crean los vertices del grafo.
-                        Nodo<Character> aux = listaLetras.getFirst();
-                        Vertice vertice;
-                        // Se crea una lista de vertices.
-                        for (int i = 0; i < 4; i++) {
-                            for (int j = 0; j < 4; j++) {                                                        
-                                vertice = new Vertice(aux.getValor(),i,j);
-                                vertices.insertFinal(vertice);
-                                aux = aux.getSiguiente();
-                            }
-                        }
-                        
-                        grafo = new Grafo(vertices);
-                        
-                        
-                        int inicioWord=documento.indexOf("dic")+"dic".length();
-                        int finWord=documento.indexOf("/dic");
-                        String palabras=documento.substring(inicioWord,finWord);
-                        palabras = palabras.trim();
-                        
-                        for (String palabra : palabras.split("\n")) {
-                            listaWord.insertFinal(palabra);
-                        }
-                        
-                        Ventana4 v4 = new Ventana4();
-                        this.setVisible(false);
-                        v4.setVisible(true);
-
-                    } 
-                    else {
-                        JOptionPane.showMessageDialog(null, "El tablero debe tener 16 letras");
-                    }
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Archivo no compatible");
-                }
-            }
-        }
-        
+        this.path = this.buscarArchivo(); 
+        this.leerTXT(this.path);
+        Ventana3 v3 = new Ventana3();
+        this.setVisible(false);
+        v3.setVisible(true);
     }//GEN-LAST:event_panelRound2MousePressed
 
     /**
