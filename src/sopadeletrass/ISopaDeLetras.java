@@ -38,6 +38,8 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         this.path = path;
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        this.escribirSopadeLetras();
+        this.imprimir_dic();
     }
 
     public void sobrescribirTXT(Grafos grafo, String[] diccionario, String direccion_txt) {
@@ -78,25 +80,26 @@ public class ISopaDeLetras extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-    
-    public void imprimir_dic(){
+
+    public void imprimir_dic() {
         for (int i = 0; i < this.diccionario.length; i++) {
-            this.dic.setText(this.dic.getText() + this.diccionario[i] +"\n");
+            this.dic.setText(this.dic.getText() + this.diccionario[i] + "\n");
         }
     }
-    public void drawTree(AuxiliarBFS_1 auxiliarBFS) {
+
+   /* public void drawTree(AuxiliarBFS_1 auxiliarBFS) {
         Graph graph = new SingleGraph("BFS Tree");
 
         for (int i = 0; i < auxiliarBFS.recorrido.length; i++) {
             try {
-                String nodeId = "node_" + i; 
-                String nodeLabel = String.valueOf(auxiliarBFS.recorrido[i].letra); 
+                String nodeId = "node_" + i;
+                String nodeLabel = String.valueOf(auxiliarBFS.recorrido[i].letra);
                 graph.addNode(nodeId);
                 Node node = graph.getNode(nodeId);
-                node.setAttribute("ui.label", nodeLabel); 
-                node.setAttribute("ui.shape", "circle"); 
-                node.setAttribute("ui.size", 10); 
-                node.setAttribute("ui.color", "rgb(173, 216, 230)"); 
+                node.setAttribute("ui.label", nodeLabel);
+                node.setAttribute("ui.shape", "circle");
+                node.setAttribute("ui.size", 10);
+                node.setAttribute("ui.color", "rgb(173, 216, 230)");
             } catch (Exception e) {
 
             }
@@ -114,8 +117,56 @@ public class ISopaDeLetras extends javax.swing.JFrame {
 
         System.setProperty("org.graphstream.ui", "swing");
         graph.display();
+    }**/
+
+    public void GraficarArbol(NodoGrafo[] recorrido) {
+
+        Graph graph = new SingleGraph("Arbol");
+
+        graph.setAttribute("ui.stylesheet", "node { fill-color: white; stroke-mode: plain; stroke-color: black; stroke-width: 2px; size: 30px; text-alignment: at-right; text-padding: 10px; }");
+
+        NodoGrafo padre = null;
+        for (NodoGrafo nodo : recorrido) {
+            try {
+                Node node = graph.addNode(nodo.pos + "");
+                node.setAttribute("ui.label", nodo.letra + "");
+                node.setAttribute("ui.class", "nodo");
+
+                if (padre != null) {
+                    graph.addEdge(padre.pos + "-" + nodo.pos, padre.pos + "", nodo.pos + "");
+                }
+                padre = nodo;
+            } catch (Exception e) {
+
+            }
+        }
+        System.setProperty("org.graphstream.ui", "swing");
+        graph.display();
     }
 
+    public void escribirSopadeLetras() {
+        String letras = "";
+        for (int i = 0; i < this.grafo.letras.length; i++) {
+            letras += this.grafo.letras[i].letra;
+        }
+        this.uno.setText(String.valueOf(letras.charAt(0)));
+        this.dos.setText(String.valueOf(letras.charAt(1)));
+        this.tres.setText(String.valueOf(letras.charAt(2)));
+        this.cuatro.setText(String.valueOf(letras.charAt(3)));
+        this.cinco.setText(String.valueOf(letras.charAt(4)));
+        this.seis.setText(String.valueOf(letras.charAt(5)));
+        this.siete.setText(String.valueOf(letras.charAt(6)));
+        this.ocho.setText(String.valueOf(letras.charAt(7)));
+        this.nueve.setText(String.valueOf(letras.charAt(8)));
+        this.diez.setText(String.valueOf(letras.charAt(9)));
+        this.once.setText(String.valueOf(letras.charAt(10)));
+        this.doce.setText(String.valueOf(letras.charAt(11)));
+        this.trece.setText(String.valueOf(letras.charAt(12)));
+        this.catorce.setText(String.valueOf(letras.charAt(13)));
+        this.quince.setText(String.valueOf(letras.charAt(14)));
+        this.dieciseis.setText(String.valueOf(letras.charAt(15)));
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -131,10 +182,10 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         empezar = new javax.swing.JButton();
         dos = new javax.swing.JTextField();
-        v00 = new javax.swing.JTextField();
+        uno = new javax.swing.JTextField();
         tres = new javax.swing.JTextField();
         cuatro = new javax.swing.JTextField();
-        v01 = new javax.swing.JTextField();
+        cinco = new javax.swing.JTextField();
         nueve = new javax.swing.JTextField();
         doce = new javax.swing.JTextField();
         ocho = new javax.swing.JTextField();
@@ -191,8 +242,8 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         dos.setText("2");
         getContentPane().add(dos, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 67, 37, -1));
 
-        v00.setText("1");
-        getContentPane().add(v00, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 39, 37, -1));
+        uno.setText("1");
+        getContentPane().add(uno, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 39, 37, -1));
 
         tres.setText("3");
         getContentPane().add(tres, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 95, 37, -1));
@@ -200,8 +251,8 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         cuatro.setText("4");
         getContentPane().add(cuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 123, 37, -1));
 
-        v01.setText("5");
-        getContentPane().add(v01, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 39, 37, -1));
+        cinco.setText("5");
+        getContentPane().add(cinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 39, 37, -1));
 
         nueve.setText("9");
         getContentPane().add(nueve, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 39, 34, -1));
@@ -271,7 +322,7 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         });
         getContentPane().add(dfs, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
 
-        jButton1.setText("GuardarTXT");
+        jButton1.setText("Cargar/GuardarTXT");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -283,7 +334,7 @@ public class ISopaDeLetras extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
 
         jLabel3.setText("INGRESAR PALABRA A BUSCAR");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 205, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 205, -1));
 
         dic.setColumns(20);
         dic.setRows(5);
@@ -314,8 +365,10 @@ public class ISopaDeLetras extends javax.swing.JFrame {
                 }
                 a[this.diccionario.length] = this.palabra.getText().toUpperCase();
                 this.diccionario = a;
+                this.imprimir_dic();
             }
             AuxiliarBFS_1 aux = this.grafo.bfsSearch(this.palabra.getText().toUpperCase());
+            this.GraficarArbol(aux.recorrido);
             if (aux.encontrado) {
 
                 JOptionPane.showMessageDialog(rootPane, "La palabra fue encontrada en la sopa de letras!");
@@ -392,6 +445,7 @@ public class ISopaDeLetras extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bfs;
     private javax.swing.JTextField catorce;
+    private javax.swing.JTextField cinco;
     private javax.swing.JTextArea contenido;
     private javax.swing.JTextField cuatro;
     private javax.swing.JButton dfs;
@@ -423,7 +477,6 @@ public class ISopaDeLetras extends javax.swing.JFrame {
     private javax.swing.JTextField siete;
     private javax.swing.JTextField trece;
     private javax.swing.JTextField tres;
-    private javax.swing.JTextField v00;
-    private javax.swing.JTextField v01;
+    private javax.swing.JTextField uno;
     // End of variables declaration//GEN-END:variables
 }

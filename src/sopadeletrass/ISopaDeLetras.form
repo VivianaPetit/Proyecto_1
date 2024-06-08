@@ -80,7 +80,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="v00">
+    <Component class="javax.swing.JTextField" name="uno">
       <Properties>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
@@ -113,7 +113,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="v01">
+    <Component class="javax.swing.JTextField" name="cinco">
       <Properties>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
@@ -331,7 +331,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="GuardarTXT"/>
+        <Property name="text" type="java.lang.String" value="Cargar/GuardarTXT"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -358,7 +358,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="310" y="290" width="205" height="-1"/>
+          <AbsoluteConstraints x="290" y="290" width="205" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
