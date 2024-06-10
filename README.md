@@ -1,4 +1,4 @@
 Integrantes: 
-Kelvin Becerra
-Viviana Petit
+Kelvin Becerra,
+Viviana Petit,
 Daniel Morales
