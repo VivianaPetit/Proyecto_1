@@ -4,16 +4,12 @@
  */
 package Interfaz;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import javax.swing.JOptionPane;
-import sopadeletrass.Grafos;
+
 
 
 /**
  *
- * @author USUARIO
+ * @author VivianaPetit
  */
 public class Ventana3 extends javax.swing.JFrame {
     Fuentes tipoFuente;
@@ -32,44 +28,7 @@ public class Ventana3 extends javax.swing.JFrame {
         jLabel10.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 23));
     }
     
-    public void sobrescribirTXT(Grafos grafo, String[] diccionario, String direccion_txt) {
-        String datos = "";
-        String linea;
-        String datos_txt = "";
-        String path = direccion_txt;
-        File file = new File(path);
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            FileWriter fw = new FileWriter(file);
-            PrintWriter pw = new PrintWriter(fw);
-            pw.write("dic" + "\n");
-            for (int i = 0; i < grafo.max_nodos; i++) {
-                try {
-                    pw.write(diccionario[i] + "\n");
-
-                } catch (Exception e) {
-                }
-            }
-            pw.write("/dic" + "\n");
-            pw.write("tab" + "\n");
-            String letras = "";
-            for (int i = 0; i < grafo.max_nodos; i++) {
-                if (i != grafo.max_nodos - 1) {
-                    letras += grafo.letras[i].letra + ",";
-                } else {
-                    letras += grafo.letras[i].letra + "\n";
-
-                }
-            }
-            pw.write(letras);
-            pw.write("/tab" + "\n");
-            pw.close();
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

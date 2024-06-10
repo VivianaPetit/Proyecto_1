@@ -6,11 +6,12 @@ package sopadeletrass;
 import Interfaz.*;
 /**
  *
- * @author KelvinCi
+ * @author KelvinCi & VivianaPetit.
  */
 public class main {
 
     public static void main(String[] args) {
+        // Se inicializa el programa.
         Ventana1 v1 =new Ventana1();
         v1.setVisible(true);
         

@@ -15,7 +15,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class Ventana2 extends javax.swing.JFrame {
 
-    public static Grafos grafo;
+    public static Grafo grafo;
     public static String[] diccionario;
     public static String path;
     Fuentes tipoFuente;
@@ -32,8 +32,14 @@ public class Ventana2 extends javax.swing.JFrame {
         jLabel4.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 18));
         
     }
-
-    public Grafos leerTXT(String direccion_txt) {
+    
+    /**
+     * Lee un archivo txt para crear el grafo y el diccionario.
+     * 
+     * @param direccion_txt direcci&oacute;n del archivo txt.
+     * @return el grafo. 
+     */
+    public Grafo leerTXT(String direccion_txt) {
         String datos = "";
         String linea;
         String datos_txt = "";
@@ -57,7 +63,7 @@ public class Ventana2 extends javax.swing.JFrame {
                         } else if (modo == 2) {
                             linea = linea.replace(" ", "");
                             linea = linea.replace(",", "");
-                            this.grafo = new Grafos(16);
+                            this.grafo = new Grafo(16);
                             for (int i = 0; i < linea.length(); i++) {
                                 grafo.insertar_vertices(linea.charAt(i));
                             }
@@ -68,7 +74,6 @@ public class Ventana2 extends javax.swing.JFrame {
                 }
                 if (!"".equals(datos_txt)) {
                     datos = datos_txt;
-
                 }
                 this.diccionario = datos_txt.replace(" ", "").split(",");
                 br.close();
@@ -79,7 +84,10 @@ public class Ventana2 extends javax.swing.JFrame {
 
         return grafo;
     }
-
+    
+    /**
+     * Construye el grafo.
+     */
     public void armarGrafo() {
         int[] indices = {-5, -4, -3, -1, 1, 3, 4, 5};
         for (int i = 0; i < 16; i++) {
@@ -89,7 +97,6 @@ public class Ventana2 extends javax.swing.JFrame {
                         case 0, 4, 8, 12 -> {
                             if (indices[j] != -5 && indices[j] != -1 && indices[j] != 3) {
                                 this.grafo.insertarArista(i, i + indices[j]);
-//                                this.sopa[i].agregar(this.sopa[i + indices[j]]);
                             }
                         }
                         case 3, 7, 11, 15 -> {
@@ -100,7 +107,6 @@ public class Ventana2 extends javax.swing.JFrame {
                         }
                         default ->
                             this.grafo.insertarArista(i, i + indices[j]);
-
                     }
                 } catch (Exception e) {
 
@@ -108,7 +114,11 @@ public class Ventana2 extends javax.swing.JFrame {
             }
         }
     }
-
+    
+    /**
+     * Lee un archivo txt para crear el grafo y el diccionario.
+     * @return el archivo como <code>String</code>. 
+     */
     public String buscarArchivo() {
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de Texto", "txt");
         JFileChooser fileChooser = new JFileChooser();

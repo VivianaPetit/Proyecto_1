@@ -6,6 +6,9 @@ package Interfaz;
 
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
 import sopadeletrass.*;
 
 
@@ -31,6 +34,36 @@ public class Ventana7 extends javax.swing.JFrame {
         jLabel4.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 20));
         jLabel5.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 16));
         
+    }
+
+    /**
+     * Muestra el &aacute;rbol del recorrido BFS.
+     * 
+     * @param recorrido el recorrido de la busqueda
+     */
+    public void GraficarArbol(NodoGrafo[] recorrido) {
+
+        Graph graph = new SingleGraph("Arbol");
+
+        graph.setAttribute("ui.stylesheet", "node { fill-color: white; stroke-mode: plain; stroke-color: black; stroke-width: 2px; size: 30px; text-alignment: at-right; text-padding: 10px; }");
+
+        NodoGrafo padre = null;
+        for (NodoGrafo nodo : recorrido) {
+            try {
+                Node node = graph.addNode(nodo.pos + "");
+                node.setAttribute("ui.label", nodo.letra + "");
+                node.setAttribute("ui.class", "nodo");
+
+                if (padre != null) {
+                    graph.addEdge(padre.pos + "-" + nodo.pos, padre.pos + "", nodo.pos + "");
+                }
+                padre = nodo;
+            } catch (Exception e) {
+
+            }
+        }
+        System.setProperty("org.graphstream.ui", "swing");
+        graph.display();
     }
 
     /**
@@ -73,7 +106,7 @@ public class Ventana7 extends javax.swing.JFrame {
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Buscar palabra específica");
-        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, 80));
+        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, 80));
 
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 340, 80));
 
@@ -103,7 +136,7 @@ public class Ventana7 extends javax.swing.JFrame {
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Menú");
-        panelRound5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 30));
+        panelRound5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 30));
 
         panelRound1.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 90, 30));
 
@@ -149,8 +182,10 @@ public class Ventana7 extends javax.swing.JFrame {
             String regex = "[A-Za-z]+";
             Pattern pattern = Pattern.compile(regex);
             
+            // Evalua que la palabra solo contenga letras y al menos 3.
             if (pattern.matcher(palabraNueva).matches() && palabraNueva.length() >= 3){
                 AuxiliarBFS aux = Ventana2.grafo.bfsSearch(this.palabra.getText().toUpperCase());
+                GraficarArbol(aux.recorrido);
                 if (aux.encontrado) {
                     JOptionPane.showMessageDialog(rootPane, "Palabra encontrada.");
                 } else {

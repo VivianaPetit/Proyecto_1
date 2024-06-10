@@ -205,9 +205,9 @@ public class Ventana4 extends javax.swing.JFrame {
 
     private void panelRound4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound4MousePressed
 
-        for(int i =0; i < Grafos.letras.length; i++) {
+        for(int i =0; i < Grafo.letras.length; i++) {
             
-            String letra = String.valueOf(Grafos.letras[i].letra);
+            String letra = String.valueOf(Grafo.letras[i].letra);
             
             /**Se obtienen los componentes del panel (TextFields) 
              * para setearles las letras del tablero.

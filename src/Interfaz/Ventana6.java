@@ -5,6 +5,12 @@
 package Interfaz;
 
 
+import static Interfaz.Ventana2.diccionario;
+import static Interfaz.Ventana2.grafo;
+import static Interfaz.Ventana2.path;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import java.util.regex.*;
 
@@ -30,6 +36,43 @@ public class Ventana6 extends javax.swing.JFrame {
         jLabel4.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 20));
         jLabel5.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 16));
         
+    }
+    
+    /**
+     * Sobre escribe un archivo txt para actualizar el diccionario.
+     */
+    public void sobrescribirTXT() {
+        File file = new File(path);
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.write("dic" + "\n");
+            for (int i = 0; i < diccionario.length; i++) {
+                try {
+                    pw.write(diccionario[i] + "\n");
+                } catch (Exception e) {
+                }
+            }
+            pw.write("/dic" + "\n");
+            pw.write("tab" + "\n");
+            String letras = "";
+            for (int i = 0; i < grafo.max_nodos; i++) {
+                if (i != grafo.max_nodos - 1) {
+                    letras += grafo.letras[i].letra + ",";
+                } else {
+                    letras += grafo.letras[i].letra + "\n";
+
+                }
+            }
+            pw.write(letras);
+            pw.write("/tab" + "\n");
+            pw.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
     }
 
     /**
@@ -149,6 +192,7 @@ public class Ventana6 extends javax.swing.JFrame {
             String regex = "[A-Za-z]+";
             Pattern pattern = Pattern.compile(regex);
             
+            // Evalua que la palabra solo contenga letras y al menos 3.
             if (pattern.matcher(palabraNueva).matches() && palabraNueva.length() >= 3){
                 boolean found = false;
                 for (int i = 0; i < Ventana2.diccionario.length; i++) {
@@ -159,21 +203,26 @@ public class Ventana6 extends javax.swing.JFrame {
                 }
                 if (!found) {
                     String[] a = new String[Ventana2.diccionario.length + 1];
+                    
                     for (int i = 0; i < Ventana2.diccionario.length; i++) {
                         a[i] = Ventana2.diccionario[i];
                     }
-                    a[Ventana2.diccionario.length] = this.palabra.getText().toUpperCase();
+                    a[Ventana2.diccionario.length] = palabra.getText().toUpperCase();
                     Ventana2.diccionario = a;
+                    sobrescribirTXT();
                     JOptionPane.showMessageDialog(null, "Agregado con éxito.");
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "Error: input no válido.");
+                    JOptionPane.showMessageDialog(null, "La palabra ya existe en el diccionario.");
                 }      
+            } else {
+                JOptionPane.showMessageDialog(null, "Error: input no válido.");
             } 
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: input no válido.");
-        }   
+        } 
+  
     }//GEN-LAST:event_panelRound3MousePressed
 
     /**

@@ -203,7 +203,6 @@ public class Ventana5 extends javax.swing.JFrame {
             AuxiliarBFS aux = Ventana2.grafo.bfsSearch(Ventana2.diccionario[i].toUpperCase());
             if (aux.encontrado) {
                 palabrasEncontradas.setText(palabrasEncontradas.getText() + Ventana2.diccionario[i] + "\n");
-
             }
         }
         long endTime = System.nanoTime();
