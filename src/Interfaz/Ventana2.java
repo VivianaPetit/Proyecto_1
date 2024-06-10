@@ -1,0 +1,227 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package Interfaz;
+
+import sopadeletrass.*;
+import java.io.*;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+/**
+ *
+ * @author KelvinCi
+ */
+public class Ventana2 extends javax.swing.JFrame {
+
+    public static Grafo grafo;
+    public static String[] diccionario;
+    public static String path;
+    Fuentes tipoFuente;
+
+    
+    public Ventana2() {
+        initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        tipoFuente = new Fuentes();
+        jLabel1.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 15));
+        jLabel2.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 28));
+        jLabel3.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 28));
+        jLabel4.setFont(tipoFuente.fuente(tipoFuente.nombre, 1, 18));
+        
+    }
+    
+    /**
+     * Lee un archivo txt para crear el grafo y el diccionario.
+     * 
+     * @param direccion_txt direcci&oacute;n del archivo txt.
+     * @return el grafo. 
+     */
+    public Grafo leerTXT(String direccion_txt) {
+        String datos = "";
+        String linea;
+        String datos_txt = "";
+        String path = direccion_txt;
+        int modo = 1;
+        File file = new File(path);
+        String lineas[];
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            } else {
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((linea = br.readLine()) != null) {
+                    if (!linea.isEmpty() && !linea.equals("dic")) {
+                        if (linea.equals("tab")) {
+                            modo = 2;
+                        } else if (linea.equals("/dic") || linea.equals("/tab")) {
+                        } else if (modo == 1) {
+                            datos_txt += (linea) + ",";
+                        } else if (modo == 2) {
+                            linea = linea.replace(" ", "");
+                            linea = linea.replace(",", "");
+                            this.grafo = new Grafo(16);
+                            for (int i = 0; i < linea.length(); i++) {
+                                grafo.insertar_vertices(linea.charAt(i));
+                            }
+                            this.armarGrafo();
+                           
+                        }
+                    }
+                }
+                if (!"".equals(datos_txt)) {
+                    datos = datos_txt;
+                }
+                this.diccionario = datos_txt.replace(" ", "").split(",");
+                br.close();
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        return grafo;
+    }
+    
+    /**
+     * Construye el grafo.
+     */
+    public void armarGrafo() {
+        int[] indices = {-5, -4, -3, -1, 1, 3, 4, 5};
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 8; j++) {
+                try {
+                    switch (i) {
+                        case 0, 4, 8, 12 -> {
+                            if (indices[j] != -5 && indices[j] != -1 && indices[j] != 3) {
+                                this.grafo.insertarArista(i, i + indices[j]);
+                            }
+                        }
+                        case 3, 7, 11, 15 -> {
+                            if (indices[j] != -3 && indices[j] != +1 && indices[j] != 5) {
+                                this.grafo.insertarArista(i, i + indices[j]);
+
+                            }
+                        }
+                        default ->
+                            this.grafo.insertarArista(i, i + indices[j]);
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+        }
+    }
+    
+    /**
+     * Lee un archivo txt para crear el grafo y el diccionario.
+     * @return el archivo como <code>String</code>. 
+     */
+    public String buscarArchivo() {
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de Texto", "txt");
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(filter);
+        File ruta = new File("e:/carpeta/");
+        fileChooser.setCurrentDirectory(ruta);
+        int result = fileChooser.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            String dir = String.valueOf(file).replace("\\", "//");
+            return dir;
+        }
+        return "";
+    }
+   
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        panelRound1 = new Interfaz.PanelRound();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        panelRound2 = new Interfaz.PanelRound();
+        jLabel4 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRound1.setBackground(new java.awt.Color(120, 61, 25));
+        panelRound1.setRoundBottomLeft(10);
+        panelRound1.setRoundBottomRight(10);
+        panelRound1.setRoundTopLeft(10);
+        panelRound1.setRoundTopRight(10);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Carga tu archivo con el diccionario");
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 1, 22)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("y las letras para el tablero");
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 30));
+
+        jLabel1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Solo archivos tipo .txt");
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, 20));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRound2.setBackground(new java.awt.Color(120, 61, 25));
+        panelRound2.setRoundBottomLeft(10);
+        panelRound2.setRoundBottomRight(10);
+        panelRound2.setRoundTopLeft(10);
+        panelRound2.setRoundTopRight(10);
+        panelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelRound2MousePressed(evt);
+            }
+        });
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Buscar Archivo");
+        panelRound2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 180, 60));
+
+        panelRound1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 380, 120));
+
+        getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 350));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void panelRound2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MousePressed
+        this.path = this.buscarArchivo(); 
+        this.leerTXT(this.path);
+        Ventana3 v3 = new Ventana3();
+        this.setVisible(false);
+        v3.setVisible(true);
+    }//GEN-LAST:event_panelRound2MousePressed
+
+    /**
+     * @param args the command line arguments
+     */
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private Interfaz.PanelRound panelRound1;
+    private Interfaz.PanelRound panelRound2;
+    // End of variables declaration//GEN-END:variables
+}
